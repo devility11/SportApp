@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
 
-    let fixturesData = GetFixtureData()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +20,9 @@ class ViewController: UIViewController {
         let serviceReq = ServiceRequests()
         
         serviceReq.getData(url: socceramaURL+"fixtures/between/2017-10-01/2017-10-09"+socceramaAPI) { response in
-            print("response eleje")
-            print(response)
-            print("response vege")
+            
+            self.updateSportData(json: response)
         }
-        
         
         
     }
@@ -33,15 +31,13 @@ class ViewController: UIViewController {
     
     func updateSportData(json: JSON){
         
-        print(json["data"])
+        
         for item in json["data"].arrayValue {
+            print("_____________ START _______________")
             print(item["id"].stringValue)
             print(item)
-            print("______________________________________")
+            print("_____________ END _________________")
         }
-            
-        
-        //print(json["data"][0]["round_id"])
         
     }
 

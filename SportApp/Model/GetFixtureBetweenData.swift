@@ -1,15 +1,14 @@
 //
-//  GetFixtureData.swift
+//  GetFixtureBetweenData.swift
 //  SportApp
 //
-//  Created by Norbert Czirjak on 2017. 10. 09..
+//  Created by Norbert Czirjak on 2017. 10. 15..
 //  Copyright © 2017. Norbert Czirjak. All rights reserved.
 //
 
 import Foundation
 
-
-class GetFixtureData {
+class GetFixtureBetweenData{
     var homeTeamID : Int = 0
     var awayTeamID : Int = 0
     var date : String = ""
@@ -21,6 +20,4 @@ class GetFixtureData {
     var extraTime : Int = 0
     var matchStatus : String = ""
     var leagueID : Int = 0
-    
-    
 }

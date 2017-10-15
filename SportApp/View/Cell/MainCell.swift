@@ -25,8 +25,8 @@ class MainCell: UITableViewCell {
     }
     
     func updateUI(fixtures: GetFixtureData){
-        self.homeLbl.text = fixtures.homeTeam
-        self.awayLbl.text = fixtures.awayTeam
+        self.homeLbl.text = fixtures.homeTeamName
+        self.awayLbl.text = fixtures.awayTeamName
     }
 
 }

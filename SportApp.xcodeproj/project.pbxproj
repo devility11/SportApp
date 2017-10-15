@@ -16,6 +16,17 @@
 		72875D0B1F8C06490013544C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72875D0A1F8C06490013544C /* Assets.xcassets */; };
 		72875D0E1F8C06490013544C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72875D0C1F8C06490013544C /* LaunchScreen.storyboard */; };
 		72875D1A1F8C06B30013544C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D191F8C06B30013544C /* Constants.swift */; };
+		72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */; };
+		72EB35401F93DDD800D54FD4 /* AP_GetCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */; };
+		72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */; };
+		72EB35461F93E22100D54FD4 /* AP_GetLeagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35451F93E22100D54FD4 /* AP_GetLeagues.swift */; };
+		72EB35481F93E2B300D54FD4 /* AP_GetStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35471F93E2B300D54FD4 /* AP_GetStanding.swift */; };
+		72EB354A1F93E3B900D54FD4 /* AP_GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35491F93E3B900D54FD4 /* AP_GetEvents.swift */; };
+		72EB354C1F93E45E00D54FD4 /* Ap_GoalScorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB354B1F93E45E00D54FD4 /* Ap_GoalScorer.swift */; };
+		72EB354E1F93E49700D54FD4 /* AP_CardsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB354D1F93E49700D54FD4 /* AP_CardsData.swift */; };
+		72EB35501F93E6E300D54FD4 /* AP_LeagueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB354F1F93E6E300D54FD4 /* AP_LeagueData.swift */; };
+		72EB35521F93E71400D54FD4 /* AP_CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35511F93E71400D54FD4 /* AP_CountryData.swift */; };
+		72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */; };
 		7F9E6359D6A1353294B28CBE /* Pods_SportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +44,17 @@
 		72875D0D1F8C06490013544C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72875D0F1F8C06490013544C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72875D191F8C06B30013544C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFixtureBetweenData.swift; sourceTree = "<group>"; };
+		72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_GetCountries.swift; sourceTree = "<group>"; };
+		72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryVC.swift; sourceTree = "<group>"; };
+		72EB35451F93E22100D54FD4 /* AP_GetLeagues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_GetLeagues.swift; sourceTree = "<group>"; };
+		72EB35471F93E2B300D54FD4 /* AP_GetStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_GetStanding.swift; sourceTree = "<group>"; };
+		72EB35491F93E3B900D54FD4 /* AP_GetEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_GetEvents.swift; sourceTree = "<group>"; };
+		72EB354B1F93E45E00D54FD4 /* Ap_GoalScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ap_GoalScorer.swift; sourceTree = "<group>"; };
+		72EB354D1F93E49700D54FD4 /* AP_CardsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CardsData.swift; sourceTree = "<group>"; };
+		72EB354F1F93E6E300D54FD4 /* AP_LeagueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueData.swift; sourceTree = "<group>"; };
+		72EB35511F93E71400D54FD4 /* AP_CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryData.swift; sourceTree = "<group>"; };
+		72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryCell.swift; sourceTree = "<group>"; };
 		A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,7 +104,6 @@
 				72875D161F8C06820013544C /* Controller */,
 				72875D151F8C06770013544C /* Util */,
 				72875D031F8C06490013544C /* AppDelegate.swift */,
-				72875D051F8C06490013544C /* ViewController.swift */,
 				72875D071F8C06490013544C /* Main.storyboard */,
 				72875D0A1F8C06490013544C /* Assets.xcassets */,
 				72875D0C1F8C06490013544C /* LaunchScreen.storyboard */,
@@ -111,6 +132,15 @@
 			children = (
 				722207861F8C0BB6006870FE /* GetFixtureData.swift */,
 				722207881F8D5592006870FE /* ServiceRequests.swift */,
+				72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */,
+				72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */,
+				72EB35451F93E22100D54FD4 /* AP_GetLeagues.swift */,
+				72EB35471F93E2B300D54FD4 /* AP_GetStanding.swift */,
+				72EB35491F93E3B900D54FD4 /* AP_GetEvents.swift */,
+				72EB354B1F93E45E00D54FD4 /* Ap_GoalScorer.swift */,
+				72EB354D1F93E49700D54FD4 /* AP_CardsData.swift */,
+				72EB354F1F93E6E300D54FD4 /* AP_LeagueData.swift */,
+				72EB35511F93E71400D54FD4 /* AP_CountryData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,9 +148,28 @@
 		72875D181F8C06920013544C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7222078C1F8D6E3B006870FE /* MainCell.swift */,
+				72EB35431F93DE5C00D54FD4 /* Cell */,
+				72875D051F8C06490013544C /* ViewController.swift */,
+				72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		72EB35431F93DE5C00D54FD4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				72EB35441F93DE6600D54FD4 /* AP */,
+				7222078C1F8D6E3B006870FE /* MainCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		72EB35441F93DE6600D54FD4 /* AP */ = {
+			isa = PBXGroup;
+			children = (
+				72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */,
+			);
+			path = AP;
 			sourceTree = "<group>";
 		};
 		D81BF52D1197309B5A84F909 /* Pods */ = {
@@ -255,12 +304,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72EB35501F93E6E300D54FD4 /* AP_LeagueData.swift in Sources */,
 				722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */,
+				72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */,
+				72EB35461F93E22100D54FD4 /* AP_GetLeagues.swift in Sources */,
+				72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */,
+				72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */,
 				72875D061F8C06490013544C /* ViewController.swift in Sources */,
 				7222078D1F8D6E3B006870FE /* MainCell.swift in Sources */,
+				72EB35401F93DDD800D54FD4 /* AP_GetCountries.swift in Sources */,
 				72875D041F8C06490013544C /* AppDelegate.swift in Sources */,
 				722207891F8D5592006870FE /* ServiceRequests.swift in Sources */,
 				72875D1A1F8C06B30013544C /* Constants.swift in Sources */,
+				72EB354A1F93E3B900D54FD4 /* AP_GetEvents.swift in Sources */,
+				72EB354C1F93E45E00D54FD4 /* Ap_GoalScorer.swift in Sources */,
+				72EB35521F93E71400D54FD4 /* AP_CountryData.swift in Sources */,
+				72EB354E1F93E49700D54FD4 /* AP_CardsData.swift in Sources */,
+				72EB35481F93E2B300D54FD4 /* AP_GetStanding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

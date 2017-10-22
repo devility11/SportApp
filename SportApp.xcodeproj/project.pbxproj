@@ -16,6 +16,8 @@
 		72875D0B1F8C06490013544C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72875D0A1F8C06490013544C /* Assets.xcassets */; };
 		72875D0E1F8C06490013544C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72875D0C1F8C06490013544C /* LaunchScreen.storyboard */; };
 		72875D1A1F8C06B30013544C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D191F8C06B30013544C /* Constants.swift */; };
+		729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */; };
+		729138521F99453000E3EA0A /* AP_LeagueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */; };
 		72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */; };
 		72EB35401F93DDD800D54FD4 /* AP_GetCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */; };
 		72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */; };
@@ -44,6 +46,8 @@
 		72875D0D1F8C06490013544C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72875D0F1F8C06490013544C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72875D191F8C06B30013544C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLeagueSlider.swift; sourceTree = "<group>"; };
+		729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueDetailVC.swift; sourceTree = "<group>"; };
 		72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFixtureBetweenData.swift; sourceTree = "<group>"; };
 		72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_GetCountries.swift; sourceTree = "<group>"; };
 		72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryVC.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				72EB354D1F93E49700D54FD4 /* AP_CardsData.swift */,
 				72EB354F1F93E6E300D54FD4 /* AP_LeagueData.swift */,
 				72EB35511F93E71400D54FD4 /* AP_CountryData.swift */,
+				7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				72EB35431F93DE5C00D54FD4 /* Cell */,
 				72875D051F8C06490013544C /* ViewController.swift */,
 				72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */,
+				729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 				72EB35501F93E6E300D54FD4 /* AP_LeagueData.swift in Sources */,
 				722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */,
 				72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */,
+				729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */,
 				72EB35461F93E22100D54FD4 /* AP_GetLeagues.swift in Sources */,
 				72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */,
 				72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */,
@@ -320,6 +327,7 @@
 				72EB354C1F93E45E00D54FD4 /* Ap_GoalScorer.swift in Sources */,
 				72EB35521F93E71400D54FD4 /* AP_CountryData.swift in Sources */,
 				72EB354E1F93E49700D54FD4 /* AP_CardsData.swift in Sources */,
+				729138521F99453000E3EA0A /* AP_LeagueDetailVC.swift in Sources */,
 				72EB35481F93E2B300D54FD4 /* AP_GetStanding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

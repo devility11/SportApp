@@ -24,9 +24,9 @@ class AP_CountryCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateUI(fixtures: GetFixtureData){
-        self.nameLbl.text = fixtures.homeTeamName
-        self.ctrLbl.text = fixtures.awayTeamName
+    func updateUI(fixtures: AP_GetLeagues){
+        self.nameLbl.text = fixtures.country_name
+        self.ctrLbl.text = fixtures.league_name
     }
 
 }

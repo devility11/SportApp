@@ -20,7 +20,9 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var countriesData = [AP_CountryData]()
     var CtrDatas = [Int]()
     var leaguesData = [AP_GetLeagues]()
+    var leaguesDataWithSection = Dictionary<String , Array<AP_GetLeagues> >()
     var selectedImage : UIImageView?
+    var sortedSections = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +59,16 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                             lg.country_name = lItem["country_name"].stringValue
                             lg.league_name = lItem["league_name"].stringValue
                             self.leaguesData.append(lg)
+                            
+                            var list = self.leaguesDataWithSection[lg.country_name] ?? []
+                            list.append(lg)
+                            self.leaguesDataWithSection[lg.country_name] = list
+                            
                         }
                         print("lfutott a legaue")
-                        self.updateUI(data: self.leaguesData)
+                        //self.updateUI(data: self.leaguesData)
+                        self.sortedSections = self.leaguesDataWithSection.keys.sorted()
+                        self.tableView.reloadData()
                     })
                 }
             }
@@ -67,6 +76,8 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         print("esemenyen kivul")
     }
+    
+    // MARK: viewDidAppear
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -76,6 +87,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    // MARK: setupLIST
     func setupList() {
         for i in topLeague.indices {
             let imageView = UIImageView(image: UIImage(named: topLeague[i].image))
@@ -84,6 +96,12 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             imageView.isUserInteractionEnabled = true
             imageView.layer.cornerRadius = 20
             imageView.layer.masksToBounds = true
+            imageView.layer.shadowColor = UIColor.black.cgColor
+            imageView.layer.shadowOpacity = 1
+            imageView.layer.shadowOffset = CGSize.zero
+            imageView.layer.shadowRadius = 10
+            //we ask swift the cache the rendered shadow
+            imageView.layer.shouldRasterize = true
             listView.addSubview(imageView)
             
             imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapImageView)))
@@ -92,6 +110,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         positionListItems()
     }
     
+    // MARK: positionListItems
     func positionListItems(){
         let listHeight = listView.frame.height
         let itemHeight: CGFloat = listHeight
@@ -112,25 +131,30 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             height:  0)
     }
     
-    func updateUI(data: [AP_GetLeagues]){
-        print("az updateuiban")
-        print(data)
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sortedSections[section]
     }
     
-
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.leaguesDataWithSection.keys.count
+        //return 1
+    }
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.fixturesData.count
-        return 1
+        return self.leaguesDataWithSection[sortedSections[section]]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AP_CountryCell", for: indexPath) as? AP_CountryCell {
-            /*print(fixturesData[indexPath.row].awayTeamName)
+            print("count row")
             print(indexPath.row)
-            let fixtures = fixturesData[indexPath.row]
-            cell.updateUI(fixtures: fixtures)*/
+            print("count section")
+            print(indexPath.section)
+            print("a leagues with sections")
+            
+            let matchData = self.leaguesDataWithSection[sortedSections[indexPath.section]]![indexPath.row]
+            cell.updateUI(fixtures: matchData)
             return cell
             
         }else {

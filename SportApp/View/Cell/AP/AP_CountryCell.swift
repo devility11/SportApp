@@ -10,7 +10,6 @@ import UIKit
 
 class AP_CountryCell: UITableViewCell {
 
-    @IBOutlet weak var ctrLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     
     override func awakeFromNib() {
@@ -25,8 +24,7 @@ class AP_CountryCell: UITableViewCell {
     }
     
     func updateUI(fixtures: AP_GetLeagues){
-        self.nameLbl.text = fixtures.country_name
-        self.ctrLbl.text = fixtures.league_name
+        self.nameLbl.text = fixtures.league_name
     }
 
 }

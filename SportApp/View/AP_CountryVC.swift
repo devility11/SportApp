@@ -23,16 +23,15 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var leaguesDataWithSection = Dictionary<String , Array<AP_GetLeagues> >()
     var selectedImage : UIImageView?
     var sortedSections = [String]()
+    var valueToPass = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
         
         let sR = ServiceRequests()
-        
         
         sR.getData(url: apiFootballURL+"get_countries"+apiFootballAPI) { response in
             
@@ -40,11 +39,10 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 let ctrData = AP_CountryData()
                 ctrData.country_id = item["country_id"].intValue
                 ctrData.country_name = item["country_name"].stringValue
-                print(item["country_name"].stringValue)
+                
                 self.CtrDatas.append(item["country_id"].intValue)
                 self.countriesData.append(ctrData)
             }
-            print("lfutott a ctr")
             
             if self.countriesData.count > 0 {
                 let sRLeague = ServiceRequests()
@@ -63,9 +61,8 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                             var list = self.leaguesDataWithSection[lg.country_name] ?? []
                             list.append(lg)
                             self.leaguesDataWithSection[lg.country_name] = list
-                            
                         }
-                        print("lfutott a legaue")
+                        
                         //self.updateUI(data: self.leaguesData)
                         self.sortedSections = self.leaguesDataWithSection.keys.sorted()
                         self.tableView.reloadData()
@@ -137,7 +134,6 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.leaguesDataWithSection.keys.count
-        //return 1
     }
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,12 +143,6 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AP_CountryCell", for: indexPath) as? AP_CountryCell {
-            print("count row")
-            print(indexPath.row)
-            print("count section")
-            print(indexPath.section)
-            print("a leagues with sections")
-            
             let matchData = self.leaguesDataWithSection[sortedSections[indexPath.section]]![indexPath.row]
             cell.updateUI(fixtures: matchData)
             return cell
@@ -173,6 +163,27 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         topLeagueDetails.topLeague = selectedTopLeague
         present(topLeagueDetails, animated: true, completion: nil)
     }
+    
+    
+    // MARK: tableviewnek a click esemenyei
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let indexPath = tableView.indexPathForSelectedRow!
+        valueToPass = String(self.leaguesDataWithSection[sortedSections[indexPath.section]]![indexPath.row].league_id)
+        performSegue(withIdentifier: "leagueSegue", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "leagueSegue") {
+            if let destination = segue.destination as? AP_LeagueVC {
+                destination.valueToPass = valueToPass
+            }
+        }
+    }
+    
+        
+    
 
 
 }

@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import ScrollableDatepicker
 
 class AP_LeagueVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     var valueToPass = ""
     var eventsData = [AP_GetEvents]()
     
+    @IBOutlet weak var datePicker: ScrollableDatepicker!
     
     @IBOutlet weak var dateScrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -68,6 +70,5 @@ class AP_LeagueVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
         }
     }
-  
-
 }
+

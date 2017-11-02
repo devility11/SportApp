@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '60A01329D1C1B6417041AD8094052B6D'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = '5D7841132F19303D319964986E35EF8B'
+               BlueprintName = 'ScrollableDatepicker-ScrollableDatepicker'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'ScrollableDatepicker.bundle'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

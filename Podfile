@@ -11,6 +11,6 @@ target 'SportApp' do
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'SVProgressHUD'
-  pod 'DateToolsSwift'
+  pod 'ScrollableDatepicker'
 
 end

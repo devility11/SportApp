@@ -30,7 +30,7 @@ class AP_MatchDetailHistoryCell: UITableViewCell {
         if goals.away_scorer.isEmpty {
             self.homeLbl.text = goals.home_scorer
             self.awayLbl.text = ""
-        }else {
+        }else if goals.home_scorer.isEmpty {
             self.awayLbl.text = goals.away_scorer
             self.homeLbl.text = ""
         }

@@ -28,40 +28,36 @@ class AP_LeagueDetailVC: UIViewController, UITableViewDelegate, UITableViewDataS
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        print("a detailabne")
-        print(valueToDetail)
         updateMainUI(data: valueToDetail)
-        print(apiFootballURL+"get_events&from=2017-10-28&to=2017-11-01&match_id=\(valueToDetail.match_id)"+apiFootballAPI)
-        let sR = ServiceRequests()
         
+        let sR = ServiceRequests()
+        print(apiFootballURL+"get_events&from=2017-10-28&to=2017-11-01&match_id=\(valueToDetail.match_id)"+apiFootballAPI)
         sR.getData(url: apiFootballURL+"get_events&from=2017-10-28&to=2017-11-01&match_id=\(valueToDetail.match_id)"+apiFootballAPI) { response in
             
             for item in response.arrayValue {
-                let goals = AP_GoalScorer()
+                
                 print(item["goalscorer"].arrayValue)
                 
                 for goal in item["goalscorer"].arrayValue {
                     
-                    if goal["away_scorer"].isEmpty {
+                    let goals = AP_GoalScorer()
+                    print("a FORBAN: ")
+                    print(goal)
+                    if goal["away_scorer"].stringValue.isEmpty {
                         goals.home_scorer = goal["home_scorer"].stringValue
                         goals.away_scorer = ""
-                    }else {
+                    }else if  goal["home_scorer"].stringValue.isEmpty {
                         goals.home_scorer = ""
                         goals.away_scorer = goal["away_scorer"].stringValue
                     }
-                    print(goal["score"].stringValue)
-                    print(goal["away_scorer"].stringValue)
+                    
                     goals.score = goal["score"].stringValue
                     goals.time = goal["time"].stringValue
                     self.goalsData.append(goals)
                 }
                 self.tableView.reloadData()
             }
-            
         }
-        
-        
-        
     }
     
     func updateMainUI(data: AP_GetEvents){
@@ -84,12 +80,7 @@ class AP_LeagueDetailVC: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AP_MatchDetailHistoryCell", for: indexPath) as? AP_MatchDetailHistoryCell {
-            let matchData = self.goalsData[indexPath.row]
-            for goalData in self.goalsData[indexPath.row] {
-                print(goalData.time)
-                cell.updateUI(goals: goalData)
-            }
-            
+            cell.updateUI(goals: self.goalsData[indexPath.row])
             return cell
             
         }else {

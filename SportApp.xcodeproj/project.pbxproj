@@ -21,6 +21,7 @@
 		729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */; };
 		729138521F99453000E3EA0A /* AP_LeagueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */; };
 		72AA4AE01FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA4ADF1FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift */; };
+		72DD7D361FCB63EB001F60E9 /* AP_MatchComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD7D351FCB63EB001F60E9 /* AP_MatchComment.swift */; };
 		72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */; };
 		72EB35401F93DDD800D54FD4 /* AP_GetCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */; };
 		72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */; };
@@ -54,6 +55,7 @@
 		7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLeagueSlider.swift; sourceTree = "<group>"; };
 		729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueDetailVC.swift; sourceTree = "<group>"; };
 		72AA4ADF1FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_MatchDetailHistoryCell.swift; sourceTree = "<group>"; };
+		72DD7D351FCB63EB001F60E9 /* AP_MatchComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_MatchComment.swift; sourceTree = "<group>"; };
 		72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFixtureBetweenData.swift; sourceTree = "<group>"; };
 		72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_GetCountries.swift; sourceTree = "<group>"; };
 		72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryVC.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				72EB354F1F93E6E300D54FD4 /* AP_LeagueData.swift */,
 				72EB35511F93E71400D54FD4 /* AP_CountryData.swift */,
 				7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */,
+				72DD7D351FCB63EB001F60E9 /* AP_MatchComment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */,
 				72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */,
 				72875D061F8C06490013544C /* ViewController.swift in Sources */,
+				72DD7D361FCB63EB001F60E9 /* AP_MatchComment.swift in Sources */,
 				7222078D1F8D6E3B006870FE /* MainCell.swift in Sources */,
 				72EB35401F93DDD800D54FD4 /* AP_GetCountries.swift in Sources */,
 				72875D041F8C06490013544C /* AppDelegate.swift in Sources */,

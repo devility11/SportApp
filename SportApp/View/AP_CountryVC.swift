@@ -69,9 +69,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                     })
                 }
             }
-            print("lfutott minden")
         }
-        print("esemenyen kivul")
     }
     
     // MARK: viewDidAppear

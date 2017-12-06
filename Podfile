@@ -12,5 +12,6 @@ target 'SportApp' do
   pod 'Alamofire'
   pod 'SVProgressHUD'
   pod 'ScrollableDatepicker'
+  pod 'FoldingCell'
 
 end

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1FECF3B3DCA135591F7643DE92469687'
-               BlueprintName = 'ScrollableDatepicker-ScrollableDatepicker'
+               BlueprintIdentifier = 'B626E472969D6F87698AF0041EAAFC38'
+               BlueprintName = 'FoldingCell'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ScrollableDatepicker.bundle'>
+               BuildableName = 'FoldingCell.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

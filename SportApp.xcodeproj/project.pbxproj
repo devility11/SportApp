@@ -12,6 +12,8 @@
 		722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722207861F8C0BB6006870FE /* GetFixtureData.swift */; };
 		722207891F8D5592006870FE /* ServiceRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722207881F8D5592006870FE /* ServiceRequests.swift */; };
 		7222078D1F8D6E3B006870FE /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7222078C1F8D6E3B006870FE /* MainCell.swift */; };
+		725A71C91FD74C0C004084D3 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A71C81FD74C0C004084D3 /* DemoCell.swift */; };
+		725A71CB1FD74C81004084D3 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A71CA1FD74C80004084D3 /* MainTableViewController.swift */; };
 		72875D041F8C06490013544C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D031F8C06490013544C /* AppDelegate.swift */; };
 		72875D061F8C06490013544C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D051F8C06490013544C /* ViewController.swift */; };
 		72875D091F8C06490013544C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72875D071F8C06490013544C /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		722207861F8C0BB6006870FE /* GetFixtureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFixtureData.swift; sourceTree = "<group>"; };
 		722207881F8D5592006870FE /* ServiceRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequests.swift; sourceTree = "<group>"; };
 		7222078C1F8D6E3B006870FE /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		725A71C81FD74C0C004084D3 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		725A71CA1FD74C80004084D3 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		72875D001F8C06490013544C /* SportApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72875D031F8C06490013544C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72875D051F8C06490013544C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		72875D161F8C06820013544C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				725A71CA1FD74C80004084D3 /* MainTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 		72EB35431F93DE5C00D54FD4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				725A71C81FD74C0C004084D3 /* DemoCell.swift */,
 				72EB35441F93DE6600D54FD4 /* AP */,
 				7222078C1F8D6E3B006870FE /* MainCell.swift */,
 			);
@@ -278,6 +284,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SportApp/Pods-SportApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableDatepicker/ScrollableDatepicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -285,6 +292,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableDatepicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -337,6 +345,7 @@
 				72EB35501F93E6E300D54FD4 /* AP_LeagueData.swift in Sources */,
 				722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */,
 				72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */,
+				725A71CB1FD74C81004084D3 /* MainTableViewController.swift in Sources */,
 				729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */,
 				72EB35461F93E22100D54FD4 /* AP_GetLeagues.swift in Sources */,
 				72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */,
@@ -348,6 +357,7 @@
 				72875D041F8C06490013544C /* AppDelegate.swift in Sources */,
 				722207891F8D5592006870FE /* ServiceRequests.swift in Sources */,
 				7203A6861FA661D800D04001 /* AP_LeagueVC.swift in Sources */,
+				725A71C91FD74C0C004084D3 /* DemoCell.swift in Sources */,
 				72875D1A1F8C06B30013544C /* Constants.swift in Sources */,
 				7203A6841FA6619300D04001 /* AP_LeagueCell.swift in Sources */,
 				72EB354A1F93E3B900D54FD4 /* AP_GetEvents.swift in Sources */,

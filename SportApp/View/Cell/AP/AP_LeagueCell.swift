@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import FoldingCell
 
-class AP_LeagueCell: UITableViewCell {
+class AP_LeagueCell: FoldingCell {
 
     @IBOutlet weak var match_status: UILabel!
     @IBOutlet weak var home_score: UILabel!
@@ -23,10 +24,9 @@ class AP_LeagueCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func animationDuration(_ itemIndex: NSInteger, type: FoldingCell.AnimationType) -> TimeInterval {
+        let durations = [0.26, 0.2, 0.2]
+        return durations[itemIndex]
     }
     
     func updateUI(events: AP_GetEvents){

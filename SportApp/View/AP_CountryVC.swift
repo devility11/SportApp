@@ -171,10 +171,9 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         performSegue(withIdentifier: "leagueSegue", sender: self)
         
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "leagueSegue") {
-            if let destination = segue.destination as? AP_LeagueVC {
+            if let destination = segue.destination as? MatchListTVC {
                 destination.valueToPass = valueToPass
             }
         }

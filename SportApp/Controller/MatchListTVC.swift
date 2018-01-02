@@ -15,12 +15,35 @@ class MatchListTVC: UITableViewController {
     let kOpenCellHeight: CGFloat = 488
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
-    
+    //to pass the ctr value
+    var valueToPass = ""
+    var valueToDetail = AP_GetEvents()
+    var eventsData = [AP_GetEvents]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
+        print(" a matcheknel")
+        print(valueToPass)
+        print(apiFootballURL+"get_events&from=2017-10-28&to=2017-11-01&league_id=\(valueToPass)"+apiFootballAPI)
+        let sR = ServiceRequests()
+        
+        sR.getData(url: apiFootballURL+"get_events&from=2017-10-28&to=2017-11-01&league_id=\(valueToPass)"+apiFootballAPI) { response in
+            
+            for item in response.arrayValue {
+                let events = AP_GetEvents()
+                events.match_awayteam_name = item["match_awayteam_name"].stringValue
+                events.match_hometeam_name = item["match_hometeam_name"].stringValue
+                events.match_hometeam_score = item["match_hometeam_score"].stringValue
+                events.match_awayteam_score = item["match_awayteam_score"].stringValue
+                events.match_status = item["match_status"].stringValue
+                events.match_id = item["match_id"].intValue
+                
+                self.eventsData.append(events)
+            }
+            self.tableView.reloadData()
+        }
         
     }
 
@@ -39,20 +62,24 @@ class MatchListTVC: UITableViewController {
 extension MatchListTVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+         return self.eventsData.count
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard case let cell as DemoCell = cell else {
             return
         }
-        
+        let matchData = self.eventsData[indexPath.row]
+        cell.updateUI(data: matchData)
+        print("a displayben")
         cell.backgroundColor = .clear
         
         if cellHeights[indexPath.row] == kCloseCellHeight {
-            cell.selectedAnimation(false, animated: false, completion:nil)
+            cell.unfold(false, animated: false, completion: nil)
+            //cell.selectedAnimation(false, animated: false, completion:nil)
         } else {
-            cell.selectedAnimation(true, animated: false, completion: nil)
+            cell.unfold(true, animated: false, completion: nil)
+            //cell.selectedAnimation(true, animated: false, completion: nil)
         }
         
         //cell.number = indexPath.row
@@ -63,6 +90,7 @@ extension MatchListTVC {
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
+        print("a folding cell beallitasaban")
         return cell
     }
     
@@ -82,11 +110,13 @@ extension MatchListTVC {
         let cellIsCollapsed = cellHeights[indexPath.row] == kCloseCellHeight
         if cellIsCollapsed {
             cellHeights[indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true, animated: true, completion: nil)
+            cell.unfold(true, animated: true, completion: nil)
+            //cell.selectedAnimation(true, animated: true, completion: nil)
             duration = 0.5
         } else {
             cellHeights[indexPath.row] = kCloseCellHeight
-            cell.selectedAnimation(false, animated: true, completion: nil)
+            cell.unfold(false, animated: true, completion: nil)
+            //cell.selectedAnimation(false, animated: true, completion: nil)
             duration = 0.8
         }
         

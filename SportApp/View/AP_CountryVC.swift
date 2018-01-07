@@ -17,10 +17,12 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listView: UIScrollView!
     
-    var countriesData = [AP_CountryData]()
+    
+    var countriesData = [SM_CtrData]()
     var CtrDatas = [Int]()
-    var leaguesData = [AP_GetLeagues]()
-    var leaguesDataWithSection = Dictionary<String , Array<AP_GetLeagues> >()
+    var leaguesData = [SM_GetLeagues]()
+    
+    var leaguesDataWithSection = Dictionary<String , Array<SM_GetLeagues> >()
     var selectedImage : UIImageView?
     var sortedSections = [String]()
     var valueToPass = ""
@@ -31,45 +33,41 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let sR = ServiceRequests()
         
-        sR.getData(url: apiFootballURL+"get_countries"+apiFootballAPI) { response in
+        let sR = ServiceRequests()
+        sR.getData(url: smURL+"leagues"+smAPI+"&include=country") {
+            response in
             
-            for item in response.arrayValue {
-                let ctrData = AP_CountryData()
+            print("az uj reqben")
+            print(smURL+"leagues"+smAPI+"&include=country")
+            for item in response["data"].arrayValue {
+                let ctrData = SM_CtrData()
                 ctrData.country_id = item["country_id"].intValue
-                ctrData.country_name = item["country_name"].stringValue
-                
+                ctrData.country_name = item["country"]["data"]["name"].stringValue
+                print(item["country_id"].intValue)
+                print(item["country"]["data"]["name"].stringValue)
                 self.CtrDatas.append(item["country_id"].intValue)
                 self.countriesData.append(ctrData)
-            }
-            
-            if self.countriesData.count > 0 {
-                let sRLeague = ServiceRequests()
                 
-                for cID in self.CtrDatas {
-                    sRLeague.getData(url: apiFootballURL+"get_leagues&country_id=\(cID)"+apiFootballAPI, completion: { responseLeague in
-                        
-                        for lItem in responseLeague.arrayValue {
-                            let lg = AP_GetLeagues()
-                            lg.country_id = lItem["country_id"].intValue
-                            lg.league_id = lItem["league_id"].intValue
-                            lg.country_name = lItem["country_name"].stringValue
-                            lg.league_name = lItem["league_name"].stringValue
-                            self.leaguesData.append(lg)
-                            
-                            var list = self.leaguesDataWithSection[lg.country_name] ?? []
-                            list.append(lg)
-                            self.leaguesDataWithSection[lg.country_name] = list
-                        }
-                        
-                        //self.updateUI(data: self.leaguesData)
-                        self.sortedSections = self.leaguesDataWithSection.keys.sorted()
-                        self.tableView.reloadData()
-                    })
-                }
+                let lg = SM_GetLeagues()
+                lg.league_id = item["id"].intValue
+                lg.ctr_id = item["country_id"].intValue
+                lg.current_round_id = item["current_round_id"].intValue
+                lg.is_cup = item["is_cup"].boolValue
+                lg.name = item["name"].stringValue
+                lg.ctr_name = item["country"]["data"]["name"].stringValue
+                lg.ctr_flag = item["country"]["data"]["flag"].stringValue
+                self.leaguesData.append(lg)
+                
+                var list = self.leaguesDataWithSection[lg.ctr_name] ?? []
+                list.append(lg)
+                self.leaguesDataWithSection[lg.ctr_name] = list
+                
             }
+            self.sortedSections = self.leaguesDataWithSection.keys.sorted()
+            self.tableView.reloadData()
         }
+        
     }
     
     // MARK: viewDidAppear

@@ -29,13 +29,13 @@ class AP_LeagueCell: FoldingCell {
         return durations[itemIndex]
     }
     
-    func updateUI(events: AP_GetEvents){
+    func updateUI(events: SM_GetEventsByDate){
 //        self.nameLbl.text = fixtures.league_name
-        self.match_status.text = events.match_status
-        self.home_score.text = events.match_hometeam_score
-        self.home_team.text = events.match_hometeam_name
-        self.away_team.text = events.match_awayteam_name
-        self.away_score.text = events.match_awayteam_score
+        self.match_status.text = events.time_status
+        self.home_score.text = String(events.local_score)
+        self.home_team.text = events.localT_name
+        self.away_team.text = events.awayT_name
+        self.away_score.text = String(events.away_score)
     }
 
 }

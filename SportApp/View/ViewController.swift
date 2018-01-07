@@ -24,8 +24,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Do any additional setup after loading the view, typically from a nib.
         let serviceReq = ServiceRequests()
-        
-        serviceReq.getData(url: socceramaURL+"fixtures/date/2017-10-01"+socceramaAPI+"&include=localTeam,visitorTeam,odds") { response in
+        print("view VC ben")
+        serviceReq.getData(url: smURL+"fixtures/date/2017-10-01"+smAPI+"&include=localTeam,visitorTeam,odds") { response in
             self.updateSportData(json: response)
         }
     }

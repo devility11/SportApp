@@ -17,9 +17,10 @@ class SM_GetEventsByDate {
     
     //weather
     var weather_code : String = ""
-    var wether_img : String = ""
+    var weather_img : String = ""
     var temperature : String = ""
     var wind_speed : String = ""
+    var weather_clouds : String = ""
     
     //score
     var local_score : Int = 0

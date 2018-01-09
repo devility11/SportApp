@@ -14,6 +14,15 @@ class DemoCell: FoldingCell {
     @IBOutlet weak var topAwayStack: UIStackView!
     @IBOutlet weak var topAwayView: UIView!
     
+    @IBOutlet weak var awayTeamFormation: UILabel!
+    @IBOutlet weak var localTeamFormationLbl: UILabel!
+    @IBOutlet weak var weatherImg: UIImageView!
+    
+    @IBOutlet weak var speedLbl: UILabel!
+    @IBOutlet weak var cloudsLbl: UILabel!
+    @IBOutlet weak var weatherLbl: UILabel!
+    @IBOutlet weak var tempLbl: UILabel!
+    
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var homeScoreLbl: UILabel!
     @IBOutlet weak var homeTeamLbl: UILabel!
@@ -42,6 +51,23 @@ class DemoCell: FoldingCell {
         awayTeamLbl.backgroundColor = UIColor.clear
         awayScoreLbl.text = String(data.away_score)
         awayTeamLbl.backgroundColor = UIColor.clear
+        
+        tempLbl.text = String(data.temperature)
+        weatherLbl.text = data.weather_code
+        cloudsLbl.text = data.weather_clouds
+        speedLbl.text = data.wind_speed
+        print("itt az ertekek")
+        print(data.temperature)
+        print(data.wind_speed)
+        if !data.weather_img.isEmpty {
+            let url = URL(string: data.weather_img)
+            let data = try? Data(contentsOf: url!)
+            weatherImg.image = UIImage(data: data!)
+        }
+        
+        localTeamFormationLbl.text = data.local_formation
+        awayTeamFormation.text = data.away_formation
+        
         
         //self.topAwayView.backgroundColor = UIColor(patternImage: UIImage(named: "super_lig.png")!)
         

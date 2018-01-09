@@ -50,6 +50,11 @@ class AP_LeagueVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 events.time = item["time"]["minute"].intValue
                 events.match_id = item["id"].intValue
                 
+                events.temperature = item["weather_report"]["temperature"]["temp"].stringValue
+                events.wind_speed = item["weather_report"]["wind"]["speed"].stringValue
+                events.weather_code = item["weather_report"]["code"].stringValue
+                events.weather_img = item["weather_report"]["icon"].stringValue
+                events.weather_clouds = item["weather_report"]["clouds"].stringValue
                 self.eventsData.append(events)
             }
             self.tableView.reloadData()

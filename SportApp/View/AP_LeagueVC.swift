@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ScrollableDatepicker
+
 
 class AP_LeagueVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,7 +17,7 @@ class AP_LeagueVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var eventsData = [SM_GetEventsByDate]()
     //var eventsData = [AP_GetEvents]()
     
-    @IBOutlet weak var datePicker: ScrollableDatepicker!
+    
     
     @IBOutlet weak var dateScrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!

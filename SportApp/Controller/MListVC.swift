@@ -1,16 +1,20 @@
 //
-//  MatchListTVC.swift
+//  MListVC.swift
 //  SportApp
 //
-//  Created by Norbert Czirjak on 2017. 12. 11..
-//  Copyright © 2017. Norbert Czirjak. All rights reserved.
+//  Created by Norbert Czirjak on 2018. 01. 31..
+//  Copyright © 2018. Norbert Czirjak. All rights reserved.
 //
 
 import UIKit
 import FoldingCell
 
-class MatchListTVC: UITableViewController {
-
+class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dateCollectionView: UICollectionView!
+    
+    
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 488
     let kRowsCount = 10
@@ -22,7 +26,9 @@ class MatchListTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         setup()
         print(" a matcheknel")
         print(valueToPass)
@@ -59,6 +65,7 @@ class MatchListTVC: UITableViewController {
             self.tableView.reloadData()
         }
         
+        
     }
 
     private func setup() {
@@ -73,13 +80,13 @@ class MatchListTVC: UITableViewController {
 
 
 // MARK: - TableView
-extension MatchListTVC {
+extension MListVC {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return self.eventsData.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.eventsData.count
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard case let cell as DemoCell = cell else {
             return
         }
@@ -99,7 +106,7 @@ extension MatchListTVC {
         //cell.number = indexPath.row
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         cell.durationsForExpandedState = durations
@@ -108,11 +115,11 @@ extension MatchListTVC {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeights[indexPath.row]
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         

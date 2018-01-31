@@ -41,6 +41,7 @@
 		72EB35521F93E71400D54FD4 /* AP_CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35511F93E71400D54FD4 /* AP_CountryData.swift */; };
 		72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */; };
 		72F458B31FDF2B3300CE38A6 /* MatchListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */; };
+		72F776272022588700E177A5 /* MListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F776262022588700E177A5 /* MListVC.swift */; };
 		7F9E6359D6A1353294B28CBE /* Pods_SportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		72EB35511F93E71400D54FD4 /* AP_CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryData.swift; sourceTree = "<group>"; };
 		72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryCell.swift; sourceTree = "<group>"; };
 		72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListTVC.swift; sourceTree = "<group>"; };
+		72F776262022588700E177A5 /* MListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MListVC.swift; sourceTree = "<group>"; };
 		A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			children = (
 				725A71CA1FD74C80004084D3 /* MainTableViewController.swift */,
 				72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */,
+				72F776262022588700E177A5 /* MListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,16 +322,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SportApp/Pods-SportApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/ScrollableDatepicker/ScrollableDatepicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableDatepicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +389,7 @@
 				72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */,
 				72875D061F8C06490013544C /* ViewController.swift in Sources */,
 				72DD7D361FCB63EB001F60E9 /* AP_MatchComment.swift in Sources */,
+				72F776272022588700E177A5 /* MListVC.swift in Sources */,
 				7240F38A20027D5D0007A548 /* GetEventsDateToDate.swift in Sources */,
 				7222078D1F8D6E3B006870FE /* MainCell.swift in Sources */,
 				7240F38020017FF70007A548 /* SM_GetLeagues.swift in Sources */,

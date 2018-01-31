@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1FECF3B3DCA135591F7643DE92469687'
-               BlueprintName = 'ScrollableDatepicker-ScrollableDatepicker'
+               BlueprintIdentifier = '4D5B8B1BE64F80268007C79821DDDC20'
+               BlueprintName = 'JTAppleCalendar'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ScrollableDatepicker.bundle'>
+               BuildableName = 'JTAppleCalendar.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -8,17 +8,26 @@
 
 import UIKit
 import FoldingCell
+import JTAppleCalendar
 
 class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var dateCollectionView: UICollectionView!
     
+    // MARK : Calendar View Stuff
+    @IBOutlet weak var calendar: JTAppleCalendarView!
+    var testCalendar = Calendar.current
+    let formatter = DateFormatter()
+    var prePostVisibility: ((CellState, CalendarCell?)->())?
+    var prepostHiddenValue = false
+    var s_Date = ""
     
+    // MARK : FoldingCell options
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 488
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
+    
     //to pass the ctr value
     var valueToPass = ""
     var valueToDetail = SM_GetEventsByDate()
@@ -28,6 +37,13 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        print("Selected date")
+        print(s_Date)
+        self.calendar.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
+            self.setupViewsOfCalendar(from: visibleDates)
+        }
+        
         
         setup()
         print(" a matcheknel")
@@ -74,8 +90,52 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
     }
+    var rangeSelectedDates: [Date] = []
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    
+    func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
+        guard let startDate = visibleDates.monthDates.first?.date else {
+            return
+        }
+    }
+    
+    func handleCellConfiguration(cell: JTAppleCell?, cellState: CellState) {
+        handleCellSelection(view: cell, cellState: cellState)
+        handleCellTextColor(view: cell, cellState: cellState)
+        prePostVisibility?(cellState, cell as? CalendarCell)
+    }
+    
+    // Function to handle the text color of the calendar
+    func handleCellTextColor(view: JTAppleCell?, cellState: CellState) {
+        guard let myCustomCell = view as? CalendarCell  else {
+            return
+        }
+        
+        if cellState.isSelected {
+            myCustomCell.label.textColor = UIColor.black
+        } else {
+            myCustomCell.label.textColor = UIColor.gray
+        }
+    }
+    
+    // Function to handle the calendar selection
+    func handleCellSelection(view: JTAppleCell?, cellState: CellState) {
+        guard let myCustomCell = view as? CalendarCell else {return }
+        
+        if cellState.isSelected {
+            for date in calendar.selectedDates {
+                formatter.dateFormat = "yyyy-MM-dd"
+                print("handlecellben")
+                print(formatter.string(from: date))
+                //let selectedDate = formatter.string(from: date)
+                self.s_Date = formatter.string(from: date)
+            }
+        }
+    }
 }
 
 
@@ -147,5 +207,72 @@ extension MListVC {
         }, completion: nil)
         
     }
+    
+}
+
+
+extension MListVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+    
+    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
+        
+        formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = testCalendar.timeZone
+        formatter.locale = testCalendar.locale
+        
+        let start =  Calendar.current.date(byAdding: .day, value: -10, to: Date())
+        let end =  Calendar.current.date(byAdding: .day, value: 10, to: Date())
+        let startD = formatter.string(from: start!)
+        let endD = formatter.string(from: end!)
+        let startDate = formatter.date(from: startD)!
+        let endDate = formatter.date(from: endD)!
+        print("first date")
+        print(startDate)
+        print("last date")
+        print(endDate)
+        
+        let parameters =  ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: 1, calendar: testCalendar, generateInDates: .forAllMonths , generateOutDates: .off , firstDayOfWeek: .monday )
+        return parameters
+    }
+    
+    func configureVisibleCell(myCustomCell: CalendarCell, cellState: CellState, date: Date) {
+        
+        myCustomCell.label.text = cellState.text
+        if testCalendar.isDateInToday(date) {
+            myCustomCell.backgroundColor = UIColor.red
+        } else {
+            myCustomCell.backgroundColor = UIColor.yellow
+        }
+        handleCellConfiguration(cell: myCustomCell, cellState: cellState)
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+        
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCell
+        
+        configureVisibleCell(myCustomCell: cell, cellState: cellState, date: date)
+        
+        //self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
+        return cell
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        (cell as! CalendarCell).label.text = cellState.text
+        //handleCellConfiguration(cell: cell, cellState: cellState)
+        let myCustomCell = cell as! CalendarCell
+        configureVisibleCell(myCustomCell: myCustomCell, cellState: cellState, date: date)
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        handleCellConfiguration(cell: cell, cellState: cellState)
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        handleCellConfiguration(cell: cell, cellState: cellState)
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        self.setupViewsOfCalendar(from: visibleDates)
+    }
+    
     
 }

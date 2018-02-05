@@ -219,18 +219,22 @@ extension MListVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
         formatter.timeZone = testCalendar.timeZone
         formatter.locale = testCalendar.locale
         
+        let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
         let start =  Calendar.current.date(byAdding: .day, value: -10, to: Date())
         let end =  Calendar.current.date(byAdding: .day, value: 10, to: Date())
+        let todayD = formatter.string(from: today!)
         let startD = formatter.string(from: start!)
         let endD = formatter.string(from: end!)
+        let todayDate = formatter.date(from: todayD)!
         let startDate = formatter.date(from: startD)!
         let endDate = formatter.date(from: endD)!
         print("first date")
         print(startDate)
         print("last date")
         print(endDate)
+        calendar.scrollToDate(todayDate)
+        let parameters =  ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: 1, calendar: testCalendar, generateInDates: .forFirstMonthOnly , generateOutDates: .off , firstDayOfWeek: .monday, hasStrictBoundaries: false )
         
-        let parameters =  ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: 1, calendar: testCalendar, generateInDates: .forAllMonths , generateOutDates: .off , firstDayOfWeek: .monday )
         return parameters
     }
     
@@ -255,6 +259,8 @@ extension MListVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
         return cell
     }
     
+   
+    
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         (cell as! CalendarCell).label.text = cellState.text
         //handleCellConfiguration(cell: cell, cellState: cellState)
@@ -268,10 +274,6 @@ extension MListVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleCellConfiguration(cell: cell, cellState: cellState)
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-        self.setupViewsOfCalendar(from: visibleDates)
     }
     
     

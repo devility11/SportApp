@@ -46,14 +46,23 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         setup()
-        print(" a matcheknel")
-        print(valueToPass)
+        let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayDateString = formatter.string(from: today!)
+        
         print(smURL+"fixtures/date/2017-12-10"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam")
+        getDataByDate(date: todayDateString)
+        
+    }
+    
+    func getDataByDate(date: String){
+        
         let sR = ServiceRequests()
         
-        sR.getData(url: smURL+"fixtures/date/2017-12-10"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam") { response in
+        sR.getData(url: smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam") { response in
             
             for item in response["data"].arrayValue {
+                print(date)
                 print(item)
                 let events = SM_GetEventsByDate()
                 events.awayT_name = item["visitorTeam"]["data"]["name"].stringValue
@@ -80,8 +89,6 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             self.tableView.reloadData()
         }
-        
-        
     }
 
     private func setup() {
@@ -131,8 +138,10 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 formatter.dateFormat = "yyyy-MM-dd"
                 print("handlecellben")
                 print(formatter.string(from: date))
+                self.getDataByDate(date: formatter.string(from: date))
                 //let selectedDate = formatter.string(from: date)
                 self.s_Date = formatter.string(from: date)
+                self.tableView.reloadData()
             }
         }
     }

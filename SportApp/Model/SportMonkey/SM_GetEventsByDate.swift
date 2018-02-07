@@ -43,5 +43,5 @@ class SM_GetEventsByDate {
     var localT_flag : String = ""
     var awayT_flag : String = ""
     
-    
+    var emptyMessage : String = ""
 }

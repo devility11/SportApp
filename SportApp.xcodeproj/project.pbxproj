@@ -17,6 +17,7 @@
 		7240F384200193300007A548 /* SM_GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240F383200193300007A548 /* SM_GetEvents.swift */; };
 		7240F38820027D4F0007A548 /* SM_GetEventsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240F38720027D4F0007A548 /* SM_GetEventsByDate.swift */; };
 		7240F38A20027D5D0007A548 /* GetEventsDateToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240F38920027D5D0007A548 /* GetEventsDateToDate.swift */; };
+		724FA0D4202BA00A0063B5E0 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */; };
 		725A71C91FD74C0C004084D3 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A71C81FD74C0C004084D3 /* DemoCell.swift */; };
 		725A71CB1FD74C81004084D3 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A71CA1FD74C80004084D3 /* MainTableViewController.swift */; };
 		72875D041F8C06490013544C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D031F8C06490013544C /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		7240F383200193300007A548 /* SM_GetEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SM_GetEvents.swift; sourceTree = "<group>"; };
 		7240F38720027D4F0007A548 /* SM_GetEventsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SM_GetEventsByDate.swift; sourceTree = "<group>"; };
 		7240F38920027D5D0007A548 /* GetEventsDateToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventsDateToDate.swift; sourceTree = "<group>"; };
+		724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
 		725A71C81FD74C0C004084D3 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		725A71CA1FD74C80004084D3 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		72875D001F8C06490013544C /* SportApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				72F7762B202776BC00E177A5 /* CalendarCell.swift */,
+				724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */,
 				725A71C81FD74C0C004084D3 /* DemoCell.swift */,
 				72EB35441F93DE6600D54FD4 /* AP */,
 				7222078C1F8D6E3B006870FE /* MainCell.swift */,
@@ -416,6 +419,7 @@
 				7240F38820027D4F0007A548 /* SM_GetEventsByDate.swift in Sources */,
 				7240F384200193300007A548 /* SM_GetEvents.swift in Sources */,
 				725A71C91FD74C0C004084D3 /* DemoCell.swift in Sources */,
+				724FA0D4202BA00A0063B5E0 /* ErrorCell.swift in Sources */,
 				72875D1A1F8C06B30013544C /* Constants.swift in Sources */,
 				7203A6841FA6619300D04001 /* AP_LeagueCell.swift in Sources */,
 				72EB354A1F93E3B900D54FD4 /* AP_GetEvents.swift in Sources */,

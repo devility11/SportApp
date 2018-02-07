@@ -32,20 +32,29 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        //remove the separator line
+        self.tableView.separatorStyle = .none
+        self.tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
         
+        self.listView.backgroundColor = UIColor.init(white: 1, alpha: 0.2)
+        
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        self.tableView.addSubview(activityIndicator)
+        activityIndicator.frame = self.tableView.bounds
+        activityIndicator.startAnimating()
         
         let sR = ServiceRequests()
+        print("the country list")
+        print(smURL+"leagues"+smAPI+"&include=country")
+        
         sR.getData(url: smURL+"leagues"+smAPI+"&include=country") {
             response in
             
-            print("az uj reqben")
-            print(smURL+"leagues"+smAPI+"&include=country")
             for item in response["data"].arrayValue {
                 let ctrData = SM_CtrData()
                 ctrData.country_id = item["country_id"].intValue
                 ctrData.country_name = item["country"]["data"]["name"].stringValue
-                print(item["country_id"].intValue)
-                print(item["country"]["data"]["name"].stringValue)
+                
                 self.CtrDatas.append(item["country_id"].intValue)
                 self.countriesData.append(ctrData)
                 
@@ -65,6 +74,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
             }
             self.sortedSections = self.leaguesDataWithSection.keys.sorted()
+            activityIndicator.removeFromSuperview()
             self.tableView.reloadData()
         }
         
@@ -140,6 +150,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AP_CountryCell", for: indexPath) as? AP_CountryCell {
             let matchData = self.leaguesDataWithSection[sortedSections[indexPath.section]]![indexPath.row]
+            cell.backgroundColor = UIColor.clear
             cell.updateUI(fixtures: matchData)
             return cell
             
@@ -163,15 +174,16 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // MARK: tableviewnek a click esemenyei
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let indexPath = tableView.indexPathForSelectedRow!
         valueToPass = String(self.leaguesDataWithSection[sortedSections[indexPath.section]]![indexPath.row].league_id)
         performSegue(withIdentifier: "leagueSegue", sender: self)
-        
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "leagueSegue") {
-            if let destination = segue.destination as? MatchListTVC {
+            if let destination = segue.destination as? MListVC {
+                print("valuetopass")
+                print(valueToPass)
                 destination.valueToPass = valueToPass
             }
         }

@@ -34,6 +34,8 @@ class MainTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
+    //remove the separator line
+    self.tableView.separatorStyle = .none
   }
   
   private func setup() {

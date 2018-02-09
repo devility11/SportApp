@@ -14,16 +14,27 @@ class DemoCell: FoldingCell {
     @IBOutlet weak var topAwayStack: UIStackView!
     @IBOutlet weak var topAwayView: UIView!
     
+    @IBOutlet weak var errorLbl: UILabel!
+    
+    //the detail view of the cell
     @IBOutlet weak var awayTeamFormation: UILabel!
     @IBOutlet weak var localTeamFormationLbl: UILabel!
     @IBOutlet weak var weatherImg: UIImageView!
-    @IBOutlet weak var errorLbl: UILabel!
-    
     @IBOutlet weak var speedLbl: UILabel!
     @IBOutlet weak var cloudsLbl: UILabel!
     @IBOutlet weak var weatherLbl: UILabel!
     @IBOutlet weak var tempLbl: UILabel!
+    @IBOutlet weak var homeScoreDLbl: UILabel!
+    @IBOutlet weak var timeDLbl: UILabel!
+    @IBOutlet weak var homeTeamDLbl: UILabel!
+    @IBOutlet weak var awayTeamDLbl: UILabel!
+    @IBOutlet weak var awayScoreDLbl: UILabel!
+    @IBOutlet weak var homeDActualPos: UILabel!
+    @IBOutlet weak var awayDActualPos: UILabel!
     
+    
+    
+    //the main cell view
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var homeScoreLbl: UILabel!
     @IBOutlet weak var homeTeamLbl: UILabel!
@@ -40,16 +51,10 @@ class DemoCell: FoldingCell {
         let durations = [0.26, 0.2, 0.2]
         return durations[itemIndex]
     }
+    
     func updateUI(data: SM_GetEventsByDate){
         if(!data.emptyMessage.isEmpty){
             errorLbl.isHidden = false
-            awayTeamFormation.isHidden = true
-            localTeamFormationLbl.isHidden = true
-            weatherImg.isHidden = true
-            speedLbl.isHidden = true
-            cloudsLbl.isHidden = true
-            weatherLbl.isHidden = true
-            tempLbl.isHidden = true
             timeLbl.isHidden = true
             homeScoreLbl.isHidden = true
             homeTeamLbl.isHidden = true
@@ -57,27 +62,26 @@ class DemoCell: FoldingCell {
             awayTeamLbl.isHidden = true
         }else{
             errorLbl.isHidden = true
-            awayTeamFormation.isHidden = false
-            localTeamFormationLbl.isHidden = false
-            weatherImg.isHidden = false
-            speedLbl.isHidden = false
-            cloudsLbl.isHidden = false
-            weatherLbl.isHidden = false
-            tempLbl.isHidden = false
             timeLbl.isHidden = false
             homeScoreLbl.isHidden = false
             homeTeamLbl.isHidden = false
             awayScoreLbl.isHidden = false
             awayTeamLbl.isHidden = false
+            
             timeLbl.text = data.time_status
+            timeDLbl.text = data.time_status
             homeScoreLbl.text = String(data.local_score)
             homeScoreLbl.backgroundColor = UIColor.clear
+            homeScoreDLbl.text = String(data.local_score)
             homeTeamLbl.text = data.localT_name
+            homeTeamDLbl.text = data.localT_name
             homeTeamLbl.backgroundColor = UIColor.clear
             
             awayTeamLbl.text = data.awayT_name
             awayTeamLbl.backgroundColor = UIColor.clear
+            awayTeamDLbl.text = data.awayT_name
             awayScoreLbl.text = String(data.away_score)
+            awayScoreDLbl.text = String(data.away_score)
             awayTeamLbl.backgroundColor = UIColor.clear
             
             tempLbl.text = String(data.temperature)
@@ -94,6 +98,8 @@ class DemoCell: FoldingCell {
             localTeamFormationLbl.text = data.local_formation
             awayTeamFormation.text = data.away_formation
             
+            homeDActualPos.text = String(data.homeActualStand)
+            awayDActualPos.text = String(data.awayActualStand)
             
             //self.topAwayView.backgroundColor = UIColor(patternImage: UIImage(named: "super_lig.png")!)
             

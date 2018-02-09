@@ -19,7 +19,6 @@
 		7240F38A20027D5D0007A548 /* GetEventsDateToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240F38920027D5D0007A548 /* GetEventsDateToDate.swift */; };
 		724FA0D4202BA00A0063B5E0 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */; };
 		725A71C91FD74C0C004084D3 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A71C81FD74C0C004084D3 /* DemoCell.swift */; };
-		725A71CB1FD74C81004084D3 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A71CA1FD74C80004084D3 /* MainTableViewController.swift */; };
 		72875D041F8C06490013544C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D031F8C06490013544C /* AppDelegate.swift */; };
 		72875D061F8C06490013544C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D051F8C06490013544C /* ViewController.swift */; };
 		72875D091F8C06490013544C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72875D071F8C06490013544C /* Main.storyboard */; };
@@ -63,7 +62,6 @@
 		7240F38920027D5D0007A548 /* GetEventsDateToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventsDateToDate.swift; sourceTree = "<group>"; };
 		724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
 		725A71C81FD74C0C004084D3 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
-		725A71CA1FD74C80004084D3 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		72875D001F8C06490013544C /* SportApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72875D031F8C06490013544C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72875D051F8C06490013544C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 		72875D161F8C06820013544C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				725A71CA1FD74C80004084D3 /* MainTableViewController.swift */,
 				72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */,
 				72F776262022588700E177A5 /* MListVC.swift */,
 			);
@@ -400,7 +397,6 @@
 				722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */,
 				72F7762C202776BD00E177A5 /* CalendarCell.swift in Sources */,
 				72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */,
-				725A71CB1FD74C81004084D3 /* MainTableViewController.swift in Sources */,
 				729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */,
 				72EB35461F93E22100D54FD4 /* AP_GetLeagues.swift in Sources */,
 				72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */,

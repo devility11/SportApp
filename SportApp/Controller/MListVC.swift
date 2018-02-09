@@ -71,14 +71,14 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             //if we dont have any events for the day
             if(response["data"].arrayValue.isEmpty){
-                let events = SM_GetEventsByDate()
+                var events = SM_GetEventsByDate()
                 events.emptyMessage = "There is no events today"
                 self.eventsData.append(events)
             }else {
                 for item in response["data"].arrayValue {
                     print(date)
                     print(item)
-                    let events = SM_GetEventsByDate()
+                    var events = SM_GetEventsByDate()
                     events.awayT_name = item["visitorTeam"]["data"]["name"].stringValue
                     events.awayT_flag = item["visitorTeam"]["data"]["flag"].stringValue
                     events.localT_name = item["localTeam"]["data"]["name"].stringValue
@@ -98,6 +98,9 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     events.weather_clouds = item["weather_report"]["clouds"].stringValue
                     events.local_formation = item["formations"]["localteam_formation"].stringValue
                     events.away_formation = item["formations"]["visitorteam_formation"].stringValue
+                    
+                    events.homeActualStand = item["standings"]["localteam_position"].intValue
+                    events.awayActualStand = item["standings"]["visitorteam_position"].intValue
                     
                     self.eventsData.append(events)
                 }

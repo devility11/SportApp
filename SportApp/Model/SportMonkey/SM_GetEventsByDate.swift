@@ -44,4 +44,8 @@ class SM_GetEventsByDate {
     var awayT_flag : String = ""
     
     var emptyMessage : String = ""
+    
+    //actual standings
+    var homeActualStand : Int = 0
+    var awayActualStand : Int = 0
 }

@@ -18,6 +18,8 @@
 		7240F38820027D4F0007A548 /* SM_GetEventsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240F38720027D4F0007A548 /* SM_GetEventsByDate.swift */; };
 		7240F38A20027D5D0007A548 /* GetEventsDateToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7240F38920027D5D0007A548 /* GetEventsDateToDate.swift */; };
 		724FA0D4202BA00A0063B5E0 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */; };
+		724FA0D62032271E0063B5E0 /* SM_GetComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FA0D52032271E0063B5E0 /* SM_GetComments.swift */; };
+		724FA0D820322F3E0063B5E0 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724FA0D720322F3E0063B5E0 /* CommentsCell.swift */; };
 		725A71C91FD74C0C004084D3 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725A71C81FD74C0C004084D3 /* DemoCell.swift */; };
 		72875D041F8C06490013544C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D031F8C06490013544C /* AppDelegate.swift */; };
 		72875D061F8C06490013544C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72875D051F8C06490013544C /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 		7240F38720027D4F0007A548 /* SM_GetEventsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SM_GetEventsByDate.swift; sourceTree = "<group>"; };
 		7240F38920027D5D0007A548 /* GetEventsDateToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventsDateToDate.swift; sourceTree = "<group>"; };
 		724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
+		724FA0D52032271E0063B5E0 /* SM_GetComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SM_GetComments.swift; sourceTree = "<group>"; };
+		724FA0D720322F3E0063B5E0 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		725A71C81FD74C0C004084D3 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		72875D001F8C06490013544C /* SportApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72875D031F8C06490013544C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				7240F383200193300007A548 /* SM_GetEvents.swift */,
 				7240F38720027D4F0007A548 /* SM_GetEventsByDate.swift */,
 				7240F38920027D5D0007A548 /* GetEventsDateToDate.swift */,
+				724FA0D52032271E0063B5E0 /* SM_GetComments.swift */,
 			);
 			path = SportMonkey;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				725A71C81FD74C0C004084D3 /* DemoCell.swift */,
 				72EB35441F93DE6600D54FD4 /* AP */,
 				7222078C1F8D6E3B006870FE /* MainCell.swift */,
+				724FA0D720322F3E0063B5E0 /* CommentsCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */,
 				72EB35461F93E22100D54FD4 /* AP_GetLeagues.swift in Sources */,
 				72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */,
+				724FA0D62032271E0063B5E0 /* SM_GetComments.swift in Sources */,
 				72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */,
 				72875D061F8C06490013544C /* ViewController.swift in Sources */,
 				72DD7D361FCB63EB001F60E9 /* AP_MatchComment.swift in Sources */,
@@ -411,6 +418,7 @@
 				72875D041F8C06490013544C /* AppDelegate.swift in Sources */,
 				722207891F8D5592006870FE /* ServiceRequests.swift in Sources */,
 				72F7762A2027710A00E177A5 /* CalendarView.swift in Sources */,
+				724FA0D820322F3E0063B5E0 /* CommentsCell.swift in Sources */,
 				7203A6861FA661D800D04001 /* AP_LeagueVC.swift in Sources */,
 				7240F38820027D4F0007A548 /* SM_GetEventsByDate.swift in Sources */,
 				7240F384200193300007A548 /* SM_GetEvents.swift in Sources */,

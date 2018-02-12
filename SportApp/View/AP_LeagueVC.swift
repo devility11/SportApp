@@ -37,7 +37,7 @@ class AP_LeagueVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
             for item in response["data"].arrayValue {
                 print(item)
-                let events = SM_GetEventsByDate()
+                var events = SM_GetEventsByDate()
                 events.awayT_name = item["awayTeam"]["data"]["name"].stringValue
                 events.awayT_flag = item["awayTeam"]["data"]["flag"].stringValue
                 events.localT_name = item["localTeam"]["data"]["name"].stringValue

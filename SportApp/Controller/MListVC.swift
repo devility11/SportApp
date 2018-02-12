@@ -67,7 +67,7 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         activityIndicator.startAnimating()
         print("the match list data")
         print(smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam")
-        sR.getData(url: smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam") { response in
+        sR.getData(url: smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam,comments") { response in
             
             //if we dont have any events for the day
             if(response["data"].arrayValue.isEmpty){
@@ -101,6 +101,17 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     events.homeActualStand = item["standings"]["localteam_position"].intValue
                     events.awayActualStand = item["standings"]["visitorteam_position"].intValue
+                    for comment in item["comments"]["data"].arrayValue {
+                        var comments = SM_GetComments()
+                        comments.comment = comment["comment"].stringValue
+                        comments.extra_minute = comment["extra_minute"].intValue
+                        comments.fixture_id = comment["fixture_id"].intValue
+                        comments.goal = comment["goal"].boolValue
+                        comments.important = comment["important"].boolValue
+                        comments.minute = comment["minute"].intValue
+                        comments.order = comment["order"].intValue
+                        events.comments.append(comments)
+                    }
                     
                     self.eventsData.append(events)
                 }

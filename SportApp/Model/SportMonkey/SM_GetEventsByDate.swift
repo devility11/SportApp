@@ -10,7 +10,7 @@
 
 import Foundation
 
-class SM_GetEventsByDate {
+struct SM_GetEventsByDate {
     
     var match_id : Int = 0
     var legaue_id : Int = 0
@@ -48,4 +48,7 @@ class SM_GetEventsByDate {
     //actual standings
     var homeActualStand : Int = 0
     var awayActualStand : Int = 0
+    
+    var comments = [SM_GetComments]()
+    
 }

@@ -9,11 +9,12 @@
 import UIKit
 import FoldingCell
 
-class DemoCell: FoldingCell {
+class DemoCell: FoldingCell  {
   
     @IBOutlet weak var topAwayStack: UIStackView!
     @IBOutlet weak var topAwayView: UIView!
     
+    @IBOutlet weak var commentTable: UITableView!
     @IBOutlet weak var errorLbl: UILabel!
     
     //the detail view of the cell
@@ -44,6 +45,7 @@ class DemoCell: FoldingCell {
     override func awakeFromNib() {
         //foregroundView.layer.cornerRadius = 10
         //foregroundView.layer.masksToBounds = true
+        
         super.awakeFromNib()
     }
   
@@ -101,6 +103,8 @@ class DemoCell: FoldingCell {
             homeDActualPos.text = String(data.homeActualStand)
             awayDActualPos.text = String(data.awayActualStand)
             
+            print("a cellben")
+            print(data.comments)
             //self.topAwayView.backgroundColor = UIColor(patternImage: UIImage(named: "super_lig.png")!)
             
             /*

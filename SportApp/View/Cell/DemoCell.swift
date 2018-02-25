@@ -8,6 +8,7 @@
 
 import UIKit
 import FoldingCell
+import ChameleonFramework
 
 class DemoCell: FoldingCell  {
   

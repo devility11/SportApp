@@ -11,10 +11,13 @@ import UIKit
 class AP_CountryCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var cellBGView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        cellBGView.backgroundColor = UIColor.flatBlueDark
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,6 +27,7 @@ class AP_CountryCell: UITableViewCell {
     }
     
     func updateUI(fixtures: SM_GetLeagues){
+        
         self.nameLbl.text = fixtures.name
     }
 

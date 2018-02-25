@@ -34,7 +34,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.dataSource = self
         //remove the separator line
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+        self.tableView.backgroundColor = UIColor.cloudsColor()
         
         self.listView.backgroundColor = UIColor.init(white: 1, alpha: 0.2)
         
@@ -51,6 +51,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             response in
             
             for item in response["data"].arrayValue {
+                
                 let ctrData = SM_CtrData()
                 ctrData.country_id = item["country_id"].intValue
                 ctrData.country_name = item["country"]["data"]["name"].stringValue
@@ -68,20 +69,19 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 lg.ctr_flag = item["country"]["data"]["flag"].stringValue
                 self.leaguesData.append(lg)
                 
-                var list = self.leaguesDataWithSection[lg.ctr_name] ?? []
+                var list = [SM_GetLeagues]()
                 list.append(lg)
-                self.leaguesDataWithSection[lg.ctr_name] = list
                 
+                self.leaguesDataWithSection[lg.ctr_name] = list
             }
+            
             self.sortedSections = self.leaguesDataWithSection.keys.sorted()
             activityIndicator.removeFromSuperview()
             self.tableView.reloadData()
         }
-        
     }
     
     // MARK: viewDidAppear
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if listView.subviews.count < topLeague.count {
@@ -151,6 +151,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AP_CountryCell", for: indexPath) as? AP_CountryCell {
             let matchData = self.leaguesDataWithSection[sortedSections[indexPath.section]]![indexPath.row]
             cell.backgroundColor = UIColor.clear
+            
             cell.updateUI(fixtures: matchData)
             return cell
             

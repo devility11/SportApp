@@ -46,7 +46,6 @@ class MListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.setupViewsOfCalendar(from: visibleDates)
         }
         
-        
         setup()
         let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
         formatter.dateFormat = "yyyy-MM-dd"

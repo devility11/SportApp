@@ -47,7 +47,6 @@
 		72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */; };
 		72F458B31FDF2B3300CE38A6 /* MatchListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */; };
 		72F776272022588700E177A5 /* MListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F776262022588700E177A5 /* MListVC.swift */; };
-		72F7762A2027710A00E177A5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F776292027710A00E177A5 /* CalendarView.swift */; };
 		72F7762C202776BD00E177A5 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F7762B202776BC00E177A5 /* CalendarCell.swift */; };
 		7F9E6359D6A1353294B28CBE /* Pods_SportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */; };
 /* End PBXBuildFile section */
@@ -97,7 +96,6 @@
 		72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryCell.swift; sourceTree = "<group>"; };
 		72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListTVC.swift; sourceTree = "<group>"; };
 		72F776262022588700E177A5 /* MListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MListVC.swift; sourceTree = "<group>"; };
-		72F776292027710A00E177A5 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		72F7762B202776BC00E177A5 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -197,8 +195,8 @@
 		72875D161F8C06820013544C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */,
-				72F776262022588700E177A5 /* MListVC.swift */,
+				72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */,
+				72F49E15204DDB2700FD8827 /* NotUsed */,
 				72843602204325C4008BC68C /* LeagueMLVC.swift */,
 			);
 			path = Controller;
@@ -220,12 +218,7 @@
 		72875D181F8C06920013544C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				72F77628202770D000E177A5 /* MatchList */,
 				72EB35431F93DE5C00D54FD4 /* Cell */,
-				72875D051F8C06490013544C /* ViewController.swift */,
-				72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */,
-				729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */,
-				7203A6851FA661D800D04001 /* AP_LeagueVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,13 +226,11 @@
 		72EB35431F93DE5C00D54FD4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				7284360020431AB0008BC68C /* LMLCell.swift */,
+				7203A6831FA6619300D04001 /* AP_LeagueCell.swift */,
+				72F49E14204DDB1200FD8827 /* NotUsed */,
 				72F7762B202776BC00E177A5 /* CalendarCell.swift */,
 				724FA0D3202BA00A0063B5E0 /* ErrorCell.swift */,
-				725A71C81FD74C0C004084D3 /* DemoCell.swift */,
-				72EB35441F93DE6600D54FD4 /* AP */,
-				7222078C1F8D6E3B006870FE /* MainCell.swift */,
-				724FA0D720322F3E0063B5E0 /* CommentsCell.swift */,
-				7284360020431AB0008BC68C /* LMLCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -248,18 +239,32 @@
 			isa = PBXGroup;
 			children = (
 				72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */,
-				7203A6831FA6619300D04001 /* AP_LeagueCell.swift */,
 				72AA4ADF1FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift */,
 			);
 			path = AP;
 			sourceTree = "<group>";
 		};
-		72F77628202770D000E177A5 /* MatchList */ = {
+		72F49E14204DDB1200FD8827 /* NotUsed */ = {
 			isa = PBXGroup;
 			children = (
-				72F776292027710A00E177A5 /* CalendarView.swift */,
+				724FA0D720322F3E0063B5E0 /* CommentsCell.swift */,
+				7222078C1F8D6E3B006870FE /* MainCell.swift */,
+				72875D051F8C06490013544C /* ViewController.swift */,
+				729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */,
+				7203A6851FA661D800D04001 /* AP_LeagueVC.swift */,
+				72EB35441F93DE6600D54FD4 /* AP */,
+				725A71C81FD74C0C004084D3 /* DemoCell.swift */,
 			);
-			path = MatchList;
+			path = NotUsed;
+			sourceTree = "<group>";
+		};
+		72F49E15204DDB2700FD8827 /* NotUsed */ = {
+			isa = PBXGroup;
+			children = (
+				72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */,
+				72F776262022588700E177A5 /* MListVC.swift */,
+			);
+			path = NotUsed;
 			sourceTree = "<group>";
 		};
 		D81BF52D1197309B5A84F909 /* Pods */ = {
@@ -428,7 +433,6 @@
 				72EB35401F93DDD800D54FD4 /* AP_GetCountries.swift in Sources */,
 				72875D041F8C06490013544C /* AppDelegate.swift in Sources */,
 				722207891F8D5592006870FE /* ServiceRequests.swift in Sources */,
-				72F7762A2027710A00E177A5 /* CalendarView.swift in Sources */,
 				724FA0D820322F3E0063B5E0 /* CommentsCell.swift in Sources */,
 				72843603204325C4008BC68C /* LeagueMLVC.swift in Sources */,
 				7284360120431AB0008BC68C /* LMLCell.swift in Sources */,

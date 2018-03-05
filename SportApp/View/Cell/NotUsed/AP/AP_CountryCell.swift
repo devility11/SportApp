@@ -16,7 +16,7 @@ class AP_CountryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        cellBGView.backgroundColor = UIColor.flatBlueDark
+        cellBGView.backgroundColor = UIColor.white
         
     }
 

@@ -20,8 +20,13 @@ class ErrorCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateUI(data: SM_GetEventsByDate){
-        print("ebben")
+    func updateUI(){
+        print("no data a cellben")
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        label.center = CGPoint(x: 160, y: 285)
+        label.textAlignment = .center
+        label.text = "There is no match for this date"
+        addSubview(label)
     }
 
 }

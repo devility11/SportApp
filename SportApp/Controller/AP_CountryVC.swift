@@ -35,6 +35,7 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         //remove the separator line
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.cloudsColor()
+        //self.tableView.backgroundColor = UIColor.white
         
         self.listView.backgroundColor = UIColor.init(white: 1, alpha: 0.2)
         
@@ -136,6 +137,14 @@ class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sortedSections[section]
+    }
+    
+    //change the section color
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.flatBlueDark
+        let header = view as! UITableViewHeaderFooterView
+        
+        header.textLabel?.textColor = UIColor.white
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

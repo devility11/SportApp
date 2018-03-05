@@ -37,9 +37,12 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         //remove the separator line
         self.tableView.separatorStyle = .none
         
+        self.calendar.backgroundColor = UIColor.white
+        
         self.calendar.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
             self.setupViewsOfCalendar(from: visibleDates)
         }
+        
         print("Selected date")
         print(s_Date)
         setup()
@@ -47,8 +50,22 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         formatter.dateFormat = "yyyy-MM-dd"
         let todayDateString = formatter.string(from: today!)
         
+        /*
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+        */
         
         getDataByDate(date: todayDateString)
+        
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl){
+        refreshControl.endRefreshing()
+        print("a refreshben a date")
+        print(self.s_Date)
+        self.getDataByDate(date: self.s_Date)
         
     }
     
@@ -87,6 +104,8 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
                     events.time = item["time"]["minute"].intValue
                     events.match_id = item["id"].intValue
                     
+                    events.starting_time = item["time"]["starting_at"]["time"].stringValue
+                    
                     events.temperature = item["weather_report"]["temperature"]["temp"].stringValue
                     events.wind_speed = item["weather_report"]["wind"]["speed"].stringValue
                     events.weather_code = item["weather_report"]["code"].stringValue
@@ -112,7 +131,9 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
                     self.eventsData.append(events)
                 }
             }
+            activityIndicator.stopAnimating()
             activityIndicator.removeFromSuperview()
+            
             self.tableView.reloadData()
         }
     }
@@ -174,32 +195,44 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
 extension LeagueMLVC {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.eventsData.count
+        
+        var numOfSections: Int = self.eventsData.count
+        if numOfSections == 1 && !self.eventsData[0].emptyMessage.isEmpty
+        {
+            let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text          = "No match for this date"
+            noDataLabel.textColor     = UIColor.black
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
+            numOfSections = 0
+        }else {
+          tableView.backgroundView = nil
+            
+        }
+        
+        return numOfSections
+        
+        
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "LMLCell", for: indexPath) as? LMLCell {
+        //if we have only one match and it has an empty match then this will be the errorcell
+        if self.eventsData.count == 1 && !self.eventsData[0].emptyMessage.isEmpty{
+            return UITableViewCell()
+        }
             
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "LMLCell", for: indexPath) as? LMLCell {
             //remove the cell bg
             cell.backgroundColor = UIColor.clear
-            
-            //add the backgroundView color
-            
-            
             let matchData = self.eventsData[indexPath.row]
             cell.updateUI(data: matchData)
             return cell
-            
         }else {
             return UITableViewCell()
         }
     }
-    
-    
-    
 }
 
 
@@ -232,9 +265,11 @@ extension LeagueMLVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource
         
         myCustomCell.label.text = cellState.text
         if testCalendar.isDateInToday(date) {
-            myCustomCell.backgroundColor = UIColor.flatBlueDark
+            myCustomCell.backgroundColor = UIColor.flatGrayDark
+            myCustomCell.label.textColor = UIColor.flatBlueDark
         } else {
             myCustomCell.backgroundColor = UIColor.flatWhite
+            myCustomCell.label.textColor = UIColor.flatBlack
         }
         handleCellConfiguration(cell: myCustomCell, cellState: cellState)
     }
@@ -262,6 +297,7 @@ extension LeagueMLVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleCellConfiguration(cell: cell, cellState: cellState)
+        
     }
     
     

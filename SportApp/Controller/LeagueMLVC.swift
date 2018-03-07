@@ -21,11 +21,19 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
     var prePostVisibility: ((CellState, CalendarCell?)->())?
     var prepostHiddenValue = false
     var s_Date = ""
+    var todayDate = ""
     
     //to pass the ctr value
     var valueToPass = ""
     var valueToDetail = SM_GetEventsByDate()
     var eventsData = [SM_GetEventsByDate]()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(LeagueMLVC.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.flatBlack
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +56,7 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         setup()
         let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
         formatter.dateFormat = "yyyy-MM-dd"
-        let todayDateString = formatter.string(from: today!)
+        self.todayDate = formatter.string(from: today!)
         
         /*
         let refreshControl = UIRefreshControl()
@@ -57,16 +65,29 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         self.tableView.refreshControl = refreshControl
         */
         
-        getDataByDate(date: todayDateString)
+        self.tableView.addSubview(self.refreshControl)
+        
+        getDataByDate(date: self.todayDate)
         
     }
     
-    @objc func refresh(refreshControl: UIRefreshControl){
-        refreshControl.endRefreshing()
-        print("a refreshben a date")
-        print(self.s_Date)
-        self.getDataByDate(date: self.s_Date)
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
         
+        // Simply adding an object to the data source for this example
+        print("itt a refreshben")
+        print(self.s_Date)
+        if self.s_Date.isEmpty {
+            self.eventsData.removeAll()
+            getDataByDate(date: self.todayDate)
+        }else {
+            self.eventsData.removeAll()
+            getDataByDate(date: self.s_Date)
+        }
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func getDataByDate(date: String){

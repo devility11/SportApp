@@ -58,7 +58,7 @@ class MatchDetailVC: UIViewController {
             })
         }
         //weather
-        if sender.selectedSegmentIndex == 2 {
+        if sender.selectedSegmentIndex == 3 {
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerViewLive.alpha = 0
@@ -69,7 +69,7 @@ class MatchDetailVC: UIViewController {
             })
         }
         //formations
-        if sender.selectedSegmentIndex == 2 {
+        if sender.selectedSegmentIndex == 4 {
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.containerViewLive.alpha = 0

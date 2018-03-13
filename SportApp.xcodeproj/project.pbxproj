@@ -46,6 +46,7 @@
 		72EB35521F93E71400D54FD4 /* AP_CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35511F93E71400D54FD4 /* AP_CountryData.swift */; };
 		72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */; };
 		72F458B31FDF2B3300CE38A6 /* MatchListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */; };
+		72F49E1720508DB600FD8827 /* MatchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F49E1620508DB600FD8827 /* MatchDetailVC.swift */; };
 		72F776272022588700E177A5 /* MListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F776262022588700E177A5 /* MListVC.swift */; };
 		72F7762C202776BD00E177A5 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F7762B202776BC00E177A5 /* CalendarCell.swift */; };
 		7F9E6359D6A1353294B28CBE /* Pods_SportApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */; };
@@ -95,6 +96,7 @@
 		72EB35511F93E71400D54FD4 /* AP_CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryData.swift; sourceTree = "<group>"; };
 		72EB35531F93E89600D54FD4 /* AP_CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_CountryCell.swift; sourceTree = "<group>"; };
 		72F458B21FDF2B3300CE38A6 /* MatchListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListTVC.swift; sourceTree = "<group>"; };
+		72F49E1620508DB600FD8827 /* MatchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailVC.swift; sourceTree = "<group>"; };
 		72F776262022588700E177A5 /* MListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MListVC.swift; sourceTree = "<group>"; };
 		72F7762B202776BC00E177A5 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		A3C4C7B5FBEA42206D6EA554 /* Pods_SportApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 				72EB35411F93DE5300D54FD4 /* AP_CountryVC.swift */,
 				72F49E15204DDB2700FD8827 /* NotUsed */,
 				72843602204325C4008BC68C /* LeagueMLVC.swift */,
+				72F49E1620508DB600FD8827 /* MatchDetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72EB35501F93E6E300D54FD4 /* AP_LeagueData.swift in Sources */,
+				72F49E1720508DB600FD8827 /* MatchDetailVC.swift in Sources */,
 				722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */,
 				72F7762C202776BD00E177A5 /* CalendarCell.swift in Sources */,
 				72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */,

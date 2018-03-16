@@ -31,9 +31,42 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(LeagueMLVC.handleRefresh(_:)), for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.flatBlack
+        refreshControl.tintColor = UIColor.clear
         return refreshControl
     }()
+    
+    //OVERWRITE THE loadview with the elastic load
+    override func loadView() {
+        super.loadView()
+        
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        //navigationController?.navigationBar.barTintColor = UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = UIColor.flatBlueDark
+        
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //tableView.separatorColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 231/255.0, alpha: 1.0)
+        tableView.separatorColor = UIColor.cloudsColor()
+       // tableView.backgroundColor = UIColor(red: 250/255.0, green: 250/255.0, blue: 251/255.0, alpha: 1.0)
+        tableView.backgroundColor = UIColor.cloudsColor()
+        view.addSubview(tableView)
+        
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        //loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+        loadingView.tintColor = UIColor.flatBlue
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+                self?.tableView.dg_stopLoading()
+            })
+            }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(UIColor.flatBlueDark)
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+    }
+    
+    deinit {
+        tableView.dg_removePullToRefresh()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +130,7 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         
         self.tableView.addSubview(activityIndicator)
         activityIndicator.frame = self.tableView.bounds
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
         print("the match list data")
         print(smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam")
         sR.getData(url: smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam,comments") { response in
@@ -152,8 +185,8 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
                     self.eventsData.append(events)
                 }
             }
-            activityIndicator.stopAnimating()
-            activityIndicator.removeFromSuperview()
+            //activityIndicator.stopAnimating()
+            //activityIndicator.removeFromSuperview()
             
             self.tableView.reloadData()
         }

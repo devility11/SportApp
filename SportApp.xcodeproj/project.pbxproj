@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72032374205C58A2006DC8A6 /* DGElasticPullToRefreshConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7203236F205C58A2006DC8A6 /* DGElasticPullToRefreshConstants.swift */; };
+		72032375205C58A2006DC8A6 /* DGElasticPullToRefreshExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032370205C58A2006DC8A6 /* DGElasticPullToRefreshExtensions.swift */; };
+		72032376205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032371205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift */; };
+		72032377205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032372205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift */; };
+		72032378205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032373205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift */; };
 		7203A6841FA6619300D04001 /* AP_LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7203A6831FA6619300D04001 /* AP_LeagueCell.swift */; };
 		7203A6861FA661D800D04001 /* AP_LeagueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7203A6851FA661D800D04001 /* AP_LeagueVC.swift */; };
 		722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722207861F8C0BB6006870FE /* GetFixtureData.swift */; };
@@ -55,6 +60,11 @@
 /* Begin PBXFileReference section */
 		35F6EA29643B4AF68AC4D5F5 /* Pods-SportApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportApp/Pods-SportApp.debug.xcconfig"; sourceTree = "<group>"; };
 		575C090935AD3F8186BF36AC /* Pods-SportApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SportApp/Pods-SportApp.release.xcconfig"; sourceTree = "<group>"; };
+		7203236F205C58A2006DC8A6 /* DGElasticPullToRefreshConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshConstants.swift; sourceTree = "<group>"; };
+		72032370205C58A2006DC8A6 /* DGElasticPullToRefreshExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshExtensions.swift; sourceTree = "<group>"; };
+		72032371205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingView.swift; sourceTree = "<group>"; };
+		72032372205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingViewCircle.swift; sourceTree = "<group>"; };
+		72032373205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshView.swift; sourceTree = "<group>"; };
 		7203A6831FA6619300D04001 /* AP_LeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueCell.swift; sourceTree = "<group>"; };
 		7203A6851FA661D800D04001 /* AP_LeagueVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueVC.swift; sourceTree = "<group>"; };
 		722207861F8C0BB6006870FE /* GetFixtureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFixtureData.swift; sourceTree = "<group>"; };
@@ -122,6 +132,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7203236D205C5890006DC8A6 /* LIB */ = {
+			isa = PBXGroup;
+			children = (
+				7203236E205C58A2006DC8A6 /* DGElasticPullToRefresh */,
+			);
+			path = LIB;
+			sourceTree = "<group>";
+		};
+		7203236E205C58A2006DC8A6 /* DGElasticPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				7203236F205C58A2006DC8A6 /* DGElasticPullToRefreshConstants.swift */,
+				72032370205C58A2006DC8A6 /* DGElasticPullToRefreshExtensions.swift */,
+				72032371205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift */,
+				72032372205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift */,
+				72032373205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift */,
+			);
+			path = DGElasticPullToRefresh;
+			sourceTree = "<group>";
+		};
 		7240F385200259340007A548 /* AP */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +202,7 @@
 		72875D021F8C06490013544C /* SportApp */ = {
 			isa = PBXGroup;
 			children = (
+				7203236D205C5890006DC8A6 /* LIB */,
 				72875D181F8C06920013544C /* View */,
 				72875D171F8C06890013544C /* Model */,
 				72875D161F8C06820013544C /* Controller */,
@@ -420,13 +451,17 @@
 			files = (
 				72EB35501F93E6E300D54FD4 /* AP_LeagueData.swift in Sources */,
 				72F49E1720508DB600FD8827 /* MatchDetailVC.swift in Sources */,
+				72032377205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */,
 				722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */,
 				72F7762C202776BD00E177A5 /* CalendarCell.swift in Sources */,
 				72EB35421F93DE5300D54FD4 /* AP_CountryVC.swift in Sources */,
 				729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */,
 				72EB35461F93E22100D54FD4 /* AP_GetLeagues.swift in Sources */,
 				72EB35541F93E89600D54FD4 /* AP_CountryCell.swift in Sources */,
+				72032376205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift in Sources */,
+				72032378205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift in Sources */,
 				724FA0D62032271E0063B5E0 /* SM_GetComments.swift in Sources */,
+				72032375205C58A2006DC8A6 /* DGElasticPullToRefreshExtensions.swift in Sources */,
 				72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */,
 				72875D061F8C06490013544C /* ViewController.swift in Sources */,
 				72DD7D361FCB63EB001F60E9 /* AP_MatchComment.swift in Sources */,
@@ -446,6 +481,7 @@
 				725A71C91FD74C0C004084D3 /* DemoCell.swift in Sources */,
 				724FA0D4202BA00A0063B5E0 /* ErrorCell.swift in Sources */,
 				72875D1A1F8C06B30013544C /* Constants.swift in Sources */,
+				72032374205C58A2006DC8A6 /* DGElasticPullToRefreshConstants.swift in Sources */,
 				7203A6841FA6619300D04001 /* AP_LeagueCell.swift in Sources */,
 				72EB354A1F93E3B900D54FD4 /* AP_GetEvents.swift in Sources */,
 				72843605204340BF008BC68C /* FlatColors.swift in Sources */,

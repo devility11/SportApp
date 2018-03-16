@@ -12,7 +12,7 @@ import SwiftyJSON
 
 let topLeague = TopLeagueSlider.all()
 
-class AP_CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class AP_CountryVC: BaseController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listView: UIScrollView!

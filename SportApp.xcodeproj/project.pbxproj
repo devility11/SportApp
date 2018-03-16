@@ -12,6 +12,7 @@
 		72032376205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032371205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift */; };
 		72032377205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032372205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift */; };
 		72032378205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032373205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift */; };
+		7203237A205C64A9006DC8A6 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72032379205C64A8006DC8A6 /* BaseController.swift */; };
 		7203A6841FA6619300D04001 /* AP_LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7203A6831FA6619300D04001 /* AP_LeagueCell.swift */; };
 		7203A6861FA661D800D04001 /* AP_LeagueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7203A6851FA661D800D04001 /* AP_LeagueVC.swift */; };
 		722207871F8C0BB6006870FE /* GetFixtureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722207861F8C0BB6006870FE /* GetFixtureData.swift */; };
@@ -65,6 +66,7 @@
 		72032371205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingView.swift; sourceTree = "<group>"; };
 		72032372205C58A2006DC8A6 /* DGElasticPullToRefreshLoadingViewCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshLoadingViewCircle.swift; sourceTree = "<group>"; };
 		72032373205C58A2006DC8A6 /* DGElasticPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGElasticPullToRefreshView.swift; sourceTree = "<group>"; };
+		72032379205C64A8006DC8A6 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		7203A6831FA6619300D04001 /* AP_LeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueCell.swift; sourceTree = "<group>"; };
 		7203A6851FA661D800D04001 /* AP_LeagueVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueVC.swift; sourceTree = "<group>"; };
 		722207861F8C0BB6006870FE /* GetFixtureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFixtureData.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				72F49E15204DDB2700FD8827 /* NotUsed */,
 				72843602204325C4008BC68C /* LeagueMLVC.swift */,
 				72F49E1620508DB600FD8827 /* MatchDetailVC.swift */,
+				72032379205C64A8006DC8A6 /* BaseController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				72EB354A1F93E3B900D54FD4 /* AP_GetEvents.swift in Sources */,
 				72843605204340BF008BC68C /* FlatColors.swift in Sources */,
 				72AA4AE01FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift in Sources */,
+				7203237A205C64A9006DC8A6 /* BaseController.swift in Sources */,
 				7240F38220018A2C0007A548 /* SM_CtrData.swift in Sources */,
 				72F458B31FDF2B3300CE38A6 /* MatchListTVC.swift in Sources */,
 				72EB354C1F93E45E00D54FD4 /* Ap_GoalScorer.swift in Sources */,

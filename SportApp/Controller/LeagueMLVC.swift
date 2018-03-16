@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
 
     @IBOutlet weak var calendar: JTAppleCalendarView!
     @IBOutlet weak var tableView: UITableView!
@@ -38,12 +38,6 @@ class LeagueMLVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
     //OVERWRITE THE loadview with the elastic load
     override func loadView() {
         super.loadView()
-        
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        //navigationController?.navigationBar.barTintColor = UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0)
-        navigationController?.navigationBar.barTintColor = UIColor.flatBlueDark
         
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         //tableView.separatorColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 231/255.0, alpha: 1.0)

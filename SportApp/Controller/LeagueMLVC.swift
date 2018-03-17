@@ -35,20 +35,25 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         return refreshControl
     }()
     
+    var newToday : String {
+        let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: today!)
+    }
+    
+    
     //OVERWRITE THE loadview with the elastic load
     override func loadView() {
         super.loadView()
         
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //tableView.separatorColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 231/255.0, alpha: 1.0)
         tableView.separatorColor = UIColor.cloudsColor()
-       // tableView.backgroundColor = UIColor(red: 250/255.0, green: 250/255.0, blue: 251/255.0, alpha: 1.0)
         tableView.backgroundColor = UIColor.cloudsColor()
         view.addSubview(tableView)
         
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-        //loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
-        loadingView.tintColor = UIColor.flatBlue
+        loadingView.tintColor = UIColor.flatWhite
+        
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
                 self?.tableView.dg_stopLoading()
@@ -57,7 +62,7 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         tableView.dg_setPullToRefreshFillColor(UIColor.flatBlueDark)
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
     }
-    
+    //deinit the elastic table refresher
     deinit {
         tableView.dg_removePullToRefresh()
     }
@@ -72,39 +77,40 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         //remove the separator line
         self.tableView.separatorStyle = .none
         
-        self.calendar.backgroundColor = UIColor.white
+        self.calendar.backgroundColor = UIColor.flatGrayDark
         
         self.calendar.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
             self.setupViewsOfCalendar(from: visibleDates)
         }
         
-        print("Selected date")
-        print(s_Date)
         setup()
+        
         let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
         formatter.dateFormat = "yyyy-MM-dd"
         self.todayDate = formatter.string(from: today!)
-        
-        /*
-        let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        self.tableView.refreshControl = refreshControl
-        */
-        
+        print("a new today date")
+        print(self.newToday)
         self.tableView.addSubview(self.refreshControl)
         
-        getDataByDate(date: self.todayDate)
+        //get the json data
+        getDataByDate(date: self.todayDate, firstLoad: true)
+        
+        //30 sec timer for the table data refreshing
+        Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.automaticUpdate), userInfo: nil, repeats: true)
+        
         
     }
     
+    //this handle the automatic table refresh
+    @objc func automaticUpdate(){
+        //we wil use the pull down table refresh function
+        let refreshControl = UIRefreshControl()
+        self.handleRefresh(refreshControl)
+    }
+    
+    //the pull down data refresh function for the tableview
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        // Do some reloading of data and update the table view's data source
-        // Fetch more objects from a web service, for example...
-        
-        // Simply adding an object to the data source for this example
-        print("itt a refreshben")
-        print(self.s_Date)
+        //if there is no new date then we will use today
         if self.s_Date.isEmpty {
             self.eventsData.removeAll()
             getDataByDate(date: self.todayDate)
@@ -117,14 +123,18 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         refreshControl.endRefreshing()
     }
     
-    func getDataByDate(date: String){
+    func getDataByDate(date: String, firstLoad: Bool = false){
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        
+        if(firstLoad == true) {
+            self.tableView.addSubview(activityIndicator)
+            activityIndicator.frame = self.tableView.bounds
+            activityIndicator.startAnimating()
+        }
+        
         self.eventsData.removeAll()
         let sR = ServiceRequests()
         
-        self.tableView.addSubview(activityIndicator)
-        activityIndicator.frame = self.tableView.bounds
-        //activityIndicator.startAnimating()
         print("the match list data")
         print(smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam")
         sR.getData(url: smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam,comments") { response in
@@ -136,8 +146,6 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
                 self.eventsData.append(events)
             }else {
                 for item in response["data"].arrayValue {
-                    print("a datzum az adat lekeresben")
-                    print(date)
                     
                     var events = SM_GetEventsByDate()
                     events.awayT_name = item["visitorTeam"]["data"]["name"].stringValue
@@ -179,9 +187,10 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
                     self.eventsData.append(events)
                 }
             }
-            //activityIndicator.stopAnimating()
-            //activityIndicator.removeFromSuperview()
-            
+            if(firstLoad == true) {
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+            }
             self.tableView.reloadData()
         }
     }
@@ -219,7 +228,7 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         if cellState.isSelected {
             myCustomCell.label.textColor = UIColor.black
         } else {
-            myCustomCell.label.textColor = UIColor.gray
+            myCustomCell.label.textColor = UIColor.flatGrayDark
         }
     }
     
@@ -230,7 +239,7 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         if cellState.isSelected {
             for date in calendar.selectedDates {
                 formatter.dateFormat = "yyyy-MM-dd"
-                self.getDataByDate(date: formatter.string(from: date))
+                self.getDataByDate(date: formatter.string(from: date), firstLoad: true)
                 //let selectedDate = formatter.string(from: date)
                 self.s_Date = formatter.string(from: date)
                 self.tableView.reloadData()
@@ -292,6 +301,7 @@ extension LeagueMLVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource
         formatter.timeZone = testCalendar.timeZone
         formatter.locale = testCalendar.locale
         
+        //i need to reformat these with closures
         let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
         let start =  Calendar.current.date(byAdding: .day, value: -10, to: Date())
         let end =  Calendar.current.date(byAdding: .day, value: 10, to: Date())
@@ -301,8 +311,7 @@ extension LeagueMLVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource
         let todayDate = formatter.date(from: todayD)!
         let startDate = formatter.date(from: startD)!
         let endDate = formatter.date(from: endD)!
-        print("a calendar setupban")
-        print(todayDate)
+        
         calendar.scrollToDate(todayDate)
         let parameters =  ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: 1, calendar: testCalendar, generateInDates: .forFirstMonthOnly , generateOutDates: .off , firstDayOfWeek: .monday, hasStrictBoundaries: false )
         
@@ -313,8 +322,8 @@ extension LeagueMLVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource
         
         myCustomCell.label.text = cellState.text
         if testCalendar.isDateInToday(date) {
-            myCustomCell.backgroundColor = UIColor.flatGrayDark
-            myCustomCell.label.textColor = UIColor.flatBlueDark
+            myCustomCell.backgroundColor = UIColor.flatBlue
+            myCustomCell.label.textColor = UIColor.flatBlack
         } else {
             myCustomCell.backgroundColor = UIColor.flatWhite
             myCustomCell.label.textColor = UIColor.flatBlack

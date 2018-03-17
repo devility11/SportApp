@@ -17,9 +17,10 @@ class BaseController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        //navigationController?.navigationBar.barTintColor = UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0)
+        //the navbar background color
         navigationController?.navigationBar.barTintColor = UIColor.flatBlueDark
-        
+        //the text color
+        navigationController?.navigationBar.tintColor = UIColor.flatWhite
     }
     
     

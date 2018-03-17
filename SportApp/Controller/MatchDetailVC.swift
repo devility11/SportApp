@@ -14,6 +14,8 @@ class MatchDetailVC: UIViewController {
     @IBOutlet weak var homeLbl: UILabel!
     @IBOutlet weak var awayLbl: UILabel!    
     @IBOutlet weak var matchTimeLbl: UILabel!
+    @IBOutlet weak var homeScoreLbl: UILabel!
+    @IBOutlet weak var awayScoreLbl: UILabel!
     
     
     @IBOutlet weak var containerViewLive: UIView!

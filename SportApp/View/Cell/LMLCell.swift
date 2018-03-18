@@ -6,6 +6,7 @@
 //  Copyright © 2018. Norbert Czirjak. All rights reserved.
 //
 
+//The match list view cells
 import UIKit
 
 class LMLCell: UITableViewCell {
@@ -41,13 +42,11 @@ class LMLCell: UITableViewCell {
             timeLbl.adjustsFontSizeToFitWidth = true
             timeLbl.minimumScaleFactor = 0.5
         }else if (data.time_status == "NS"){
-            print("itt")
-            print(data)
             let time = data.starting_time
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             let fullDate = dateFormatter.date(from: time)
-            dateFormatter.dateFormat = "hh:mm"
+            dateFormatter.dateFormat = "HH:mm"
             let startingTime = dateFormatter.string(from: fullDate!)
             timeLbl.text = startingTime
             timeLbl.numberOfLines = 1

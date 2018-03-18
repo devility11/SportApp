@@ -39,6 +39,9 @@
 		729138501F99109D00E3EA0A /* TopLeagueSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */; };
 		729138521F99453000E3EA0A /* AP_LeagueDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */; };
 		72AA4AE01FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA4ADF1FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift */; };
+		72B4E2E8205EE51A00FA0B06 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4E2E7205EE51A00FA0B06 /* CommentsVC.swift */; };
+		72B4E2EA205EF71F00FA0B06 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4E2E9205EF71F00FA0B06 /* ContainerVC.swift */; };
+		72B4E2EC205EF8EE00FA0B06 /* StandingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B4E2EB205EF8EE00FA0B06 /* StandingsVC.swift */; };
 		72DD7D361FCB63EB001F60E9 /* AP_MatchComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD7D351FCB63EB001F60E9 /* AP_MatchComment.swift */; };
 		72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */; };
 		72EB35401F93DDD800D54FD4 /* AP_GetCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */; };
@@ -95,6 +98,9 @@
 		7291384F1F99109D00E3EA0A /* TopLeagueSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLeagueSlider.swift; sourceTree = "<group>"; };
 		729138511F99453000E3EA0A /* AP_LeagueDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_LeagueDetailVC.swift; sourceTree = "<group>"; };
 		72AA4ADF1FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_MatchDetailHistoryCell.swift; sourceTree = "<group>"; };
+		72B4E2E7205EE51A00FA0B06 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
+		72B4E2E9205EF71F00FA0B06 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
+		72B4E2EB205EF8EE00FA0B06 /* StandingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsVC.swift; sourceTree = "<group>"; };
 		72DD7D351FCB63EB001F60E9 /* AP_MatchComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_MatchComment.swift; sourceTree = "<group>"; };
 		72EB353D1F93CA9900D54FD4 /* GetFixtureBetweenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFixtureBetweenData.swift; sourceTree = "<group>"; };
 		72EB353F1F93DDD800D54FD4 /* AP_GetCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AP_GetCountries.swift; sourceTree = "<group>"; };
@@ -235,6 +241,9 @@
 				72843602204325C4008BC68C /* LeagueMLVC.swift */,
 				72F49E1620508DB600FD8827 /* MatchDetailVC.swift */,
 				72032379205C64A8006DC8A6 /* BaseController.swift */,
+				72B4E2E7205EE51A00FA0B06 /* CommentsVC.swift */,
+				72B4E2E9205EF71F00FA0B06 /* ContainerVC.swift */,
+				72B4E2EB205EF8EE00FA0B06 /* StandingsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 				72EB353E1F93CA9900D54FD4 /* GetFixtureBetweenData.swift in Sources */,
 				72875D061F8C06490013544C /* ViewController.swift in Sources */,
 				72DD7D361FCB63EB001F60E9 /* AP_MatchComment.swift in Sources */,
+				72B4E2EC205EF8EE00FA0B06 /* StandingsVC.swift in Sources */,
 				72F776272022588700E177A5 /* MListVC.swift in Sources */,
 				7240F38A20027D5D0007A548 /* GetEventsDateToDate.swift in Sources */,
 				7222078D1F8D6E3B006870FE /* MainCell.swift in Sources */,
@@ -488,10 +498,12 @@
 				7203A6841FA6619300D04001 /* AP_LeagueCell.swift in Sources */,
 				72EB354A1F93E3B900D54FD4 /* AP_GetEvents.swift in Sources */,
 				72843605204340BF008BC68C /* FlatColors.swift in Sources */,
+				72B4E2E8205EE51A00FA0B06 /* CommentsVC.swift in Sources */,
 				72AA4AE01FB10E1F00B80152 /* AP_MatchDetailHistoryCell.swift in Sources */,
 				7203237A205C64A9006DC8A6 /* BaseController.swift in Sources */,
 				7240F38220018A2C0007A548 /* SM_CtrData.swift in Sources */,
 				72F458B31FDF2B3300CE38A6 /* MatchListTVC.swift in Sources */,
+				72B4E2EA205EF71F00FA0B06 /* ContainerVC.swift in Sources */,
 				72EB354C1F93E45E00D54FD4 /* Ap_GoalScorer.swift in Sources */,
 				72EB35521F93E71400D54FD4 /* AP_CountryData.swift in Sources */,
 				72EB354E1F93E49700D54FD4 /* AP_CardsData.swift in Sources */,

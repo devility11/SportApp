@@ -191,16 +191,12 @@ class AP_CountryVC: BaseController, UITableViewDelegate, UITableViewDataSource{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "leagueSegue") {
-            if let destination = segue.destination as? MListVC {
-                print("valuetopass")
+            if let destination = segue.destination as? LeagueMLVC {
+                print("valuetopass000")
                 print(valueToPass)
                 destination.valueToPass = valueToPass
             }
         }
     }
     
-        
-    
-
-
 }

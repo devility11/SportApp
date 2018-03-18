@@ -13,7 +13,7 @@ import Foundation
 
 class SM_GetEvents {
     var round_id : Int = 0
-    var league_id : Int = 0
+    
     var round_start : String = ""
     var round_end : String = ""
     
@@ -24,7 +24,10 @@ class SM_GetEvents {
     var country_id : Int = 0
     var country_name : String = ""
     
+    //league data
+    var league_id : Int = 0
     var league_name : String = ""
+    
     var match_date : String = ""
     var match_status : String = ""
     var match_time : String = ""

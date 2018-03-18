@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+
+//the class for the API requests
 class ServiceRequests {
     
     func getData(url: String, completion: @escaping (JSON) -> ()) {
@@ -19,16 +21,16 @@ class ServiceRequests {
         
         Alamofire.request(url, method: .get)
             .responseJSON { response in
+                
                 switch response.result {
                 case .success:
                     let jsonData = JSON(data: response.data!)
                     completion(jsonData)
                 case .failure(let error):
-                    print("hiba")
+                    print("There is an error in the getData function")
                     print(error)
                 }
         }
     }
-    
     
 }

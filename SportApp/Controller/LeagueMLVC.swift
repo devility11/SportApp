@@ -21,7 +21,6 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
     var prePostVisibility: ((CellState, CalendarCell?)->())?
     var prepostHiddenValue = false
     var s_Date = ""
-    var todayDate = ""
     
     //to pass the ctr value
     var valueToPass = ""
@@ -35,7 +34,7 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         return refreshControl
     }()
     
-    var newToday : String {
+    var todayDate : String {
         let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: today!)
@@ -85,19 +84,15 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         
         setup()
         
-        let today =  Calendar.current.date(byAdding: .day, value: 0, to: Date())
-        formatter.dateFormat = "yyyy-MM-dd"
-        self.todayDate = formatter.string(from: today!)
-        print("a new today date")
-        print(self.newToday)
         self.tableView.addSubview(self.refreshControl)
         
         //get the json data
         getDataByDate(date: self.todayDate, firstLoad: true)
         
-        //30 sec timer for the table data refreshing
-        Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.automaticUpdate), userInfo: nil, repeats: true)
-        
+        //30 sec timer for the table data refreshing, if it is enabled in the contstants class
+        if ( enableAutomaticUpdate ){
+            Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.automaticUpdate), userInfo: nil, repeats: true)
+        }
         
     }
     
@@ -137,8 +132,11 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
         
         print("the match list data")
         print(smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam")
-        sR.getData(url: smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam,comments") { response in
-            
+        sR.getData(url: smURL+"fixtures/date/\(date)"+smAPI+"&leagues=\(valueToPass)&include=localTeam,visitorTeam,league") { response in
+            print("a response")
+            print(response)
+            print("a response data")
+            print(response["data"])
             //if we dont have any events for the day
             if(response["data"].arrayValue.isEmpty){
                 var events = SM_GetEventsByDate()
@@ -172,6 +170,12 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
                     
                     events.homeActualStand = item["standings"]["localteam_position"].intValue
                     events.awayActualStand = item["standings"]["visitorteam_position"].intValue
+                    
+                    events.league_id = item["league"]["data"]["id"].intValue
+                    events.league_name = item["league"]["data"]["name"].stringValue
+                        
+                    
+                    /*
                     for comment in item["comments"]["data"].arrayValue {
                         var comments = SM_GetComments()
                         comments.comment = comment["comment"].stringValue
@@ -183,7 +187,7 @@ class LeagueMLVC: BaseController, UITableViewDelegate, UITableViewDataSource  {
                         comments.order = comment["order"].intValue
                         events.comments.append(comments)
                     }
-                    
+                    */
                     self.eventsData.append(events)
                 }
             }
@@ -290,6 +294,24 @@ extension LeagueMLVC {
             return UITableViewCell()
         }
     }
+    
+    
+    // MARK: tableviewnek a click esemenyei
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        valueToDetail = self.eventsData[indexPath.row]
+        performSegue(withIdentifier: "matchDetailsSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "matchDetailsSegue") {
+            if let destination = segue.destination as? MatchDetailVC {
+                
+                destination.valueToDetail = valueToDetail
+            }
+        }
+    }
+    
 }
 
 
@@ -354,8 +376,5 @@ extension LeagueMLVC: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleCellConfiguration(cell: cell, cellState: cellState)
-        
     }
-    
-    
 }

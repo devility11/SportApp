@@ -13,7 +13,10 @@ import Foundation
 struct SM_GetEventsByDate {
     
     var match_id : Int = 0
-    var legaue_id : Int = 0
+    
+    //league data
+    var league_id : Int = 0
+    var league_name : String = ""
     
     //weather
     var weather_code : String = ""

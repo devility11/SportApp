@@ -16,6 +16,7 @@ class LMLCell: UITableViewCell {
     @IBOutlet weak var awayScorelbl: UILabel!
     @IBOutlet weak var homeTmLbl: UILabel!
     @IBOutlet weak var awayTmLbl: UILabel!
+    
     @IBOutlet weak var cellBGView: UIView!
     @IBOutlet weak var teamNamesView: UIView!
     @IBOutlet weak var scoresView: UIView!
@@ -36,27 +37,51 @@ class LMLCell: UITableViewCell {
         cellBGView.backgroundColor = UIColor.white
         
         timeView.sizeToFit()
+        self.scoresView.backgroundColor = UIColor.flatCararraGray()
+        self.teamNamesView.backgroundColor = UIColor.flatCararraGray()
+        
         if(data.time_status == "LIVE"){
+            self.timeView.backgroundColor = UIColor.flatGreen
+            timeLbl.textColor = UIColor.flatWhite
             timeLbl.text = String(data.time)
             timeLbl.numberOfLines = 1
             timeLbl.adjustsFontSizeToFitWidth = true
             timeLbl.minimumScaleFactor = 0.5
         }else if (data.time_status == "NS"){
+            self.timeView.backgroundColor = UIColor.flatIron()
+            
             let time = data.starting_time
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             let fullDate = dateFormatter.date(from: time)
             dateFormatter.dateFormat = "HH:mm"
             let startingTime = dateFormatter.string(from: fullDate!)
+            
+            timeLbl.textColor = UIColor.flatBlack
             timeLbl.text = startingTime
             timeLbl.numberOfLines = 1
             timeLbl.adjustsFontSizeToFitWidth = true
-            timeLbl.minimumScaleFactor = 0.5
+            timeLbl.minimumScaleFactor = 0.2
         }else{
+            self.timeView.backgroundColor = UIColor.flatIron()
+            
             timeLbl.text = data.time_status
             timeLbl.numberOfLines = 1
             timeLbl.adjustsFontSizeToFitWidth = true
             timeLbl.minimumScaleFactor = 0.5
+        }
+        
+        if(data.local_score > data.away_score){
+            homeScoreLbl.font = UIFont.boldSystemFont(ofSize: 17.0)
+            homeTmLbl.font = UIFont.boldSystemFont(ofSize: 17.0)
+        }else if (data.away_score > data.local_score){
+            awayScorelbl.font = UIFont.boldSystemFont(ofSize: 17.0)
+            awayTmLbl.font = UIFont.boldSystemFont(ofSize: 17.0)
+        }else {
+            homeScoreLbl.font = UIFont.systemFont(ofSize: 17.0)
+            homeTmLbl.font = UIFont.systemFont(ofSize: 17.0)
+            awayScorelbl.font = UIFont.systemFont(ofSize: 17.0)
+            awayTmLbl.font = UIFont.systemFont(ofSize: 17.0)
         }
         
         scoresView.sizeToFit()

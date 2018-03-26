@@ -13,6 +13,26 @@ extension UIColor {
         self.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1.0)
     }
     
+    class func flatWhiteSmoke()->UIColor {
+        return UIColor(r: 236, g: 236, b: 236)
+    }
+    
+    class func flatGalleryGray()->UIColor {
+        return UIColor(r: 238, g: 238, b: 238)
+    }
+    
+    class func flatSilverSandGray()->UIColor {
+        return UIColor(r: 189, g: 195, b: 199)
+    }
+    
+    class func flatCararraGray()->UIColor {
+        return UIColor(r: 242, g: 241, b: 239)
+    }
+    
+    class func flatIron()->UIColor {
+        return UIColor(r: 218, g: 223, b: 225)
+    }
+    
     class func turquoiseColor()->UIColor {
         return UIColor(r: 26, g: 188, b: 156)
     }
